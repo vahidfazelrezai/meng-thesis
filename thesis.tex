@@ -20,7 +20,7 @@
 \cleardoublepage
 \setcounter{savepage}{\thepage}
 \begin{abstractpage}
-Instructors use software called learning management systems to administer online courses. Traditionally these digital platforms mimic physical classrooms, but new technology opens up potential for interactions not previously possible. In this thesis, we build a learning management system on top of git to create a learning environment that encourages collaboration and exploration. We discuss how it was designed following established learning principles, the technical implementation, and the results of a pilot online class, with 80 learners lasting 6 weeks, as part of the Refugee Learning Accelerator. The platform architecture used in this study can be replicated and reused for other online courses with similar goals.
+Instructors use software called learning management systems to administer online courses. Traditionally these digital platforms mimic physical classrooms, but new technology opens up potential for interactions not previously possible. In this thesis, we build a learning management system on top of Git to create a learning environment that encourages collaboration and exploration. We discuss how it was designed following established learning principles, the technical implementation, and the results of a pilot online class, with 80 learners lasting 6 weeks, as part of the Refugee Learning Accelerator. The platform architecture used in this study can be replicated and reused for other online courses with similar goals.
 \end{abstractpage}
 \cleardoublepage
 \section*{Acknowledgments}
@@ -38,13 +38,13 @@ Instructors use software called learning management systems to administer online
 
 New education technology, enabled by the Internet, has allowed learners to connect with their instructors and with each other digitally. Pieces of software known as learning management systems take the experience of a classroom online, giving remote learners more access to education and enriching their learning experiences with a variety of technology.
 
-In this thesis I employ git, a version control technology initially created for collaboration among software developers, as the foundation for an experimental learning platform. The decentralized nature of git can be utilized to expand interactions beyond replicating that which is found in traditional course. New interactions can be designed to balances the benefits of a collective learning experience with those of independent open-ended projects. In this study, I develop a prototype of such a platform and examine the results of a pilot run in an online course. As a result of this work, I hope to contribute to lowering the barrier of entry to administer an online course using a git-based learning platform. The design decisions map out an architecture that can be built upon in future courses. 
+In this thesis I employ Git, a version control technology initially created for collaboration among software developers, as the foundation for an experimental learning platform. The decentralized nature of Git can be utilized to expand interactions beyond replicating that which is found in traditional course. New interactions can be designed to balances the benefits of a collective learning experience with those of independent open-ended projects. In this study, I develop a prototype of such a platform and examine the results of a pilot run in an online course. As a result of this work, I hope to contribute to lowering the barrier of entry to administer an online course using a Git-based learning platform. The design decisions map out an architecture that can be built upon in future courses. 
 
 The following sections outlines the approach taken towards this study. Chapters 2 and 3 cover the established theory and other similar projects that were taken as guidance in designing the new platform. Chapter 4 steps through the design and implementation of the platform; section 4.3 is the only section in this thesis that assumes a technical background. Finally, results of a pilot run of using the platform in an online course are presented in chapter 5. 
 
 \section{Refugee Learning Accelerator}
 
-The development of a git-based learning platform is part of a larger project called the Refugee Learning Accelerator (RLA). RLA is a program run by the Learning Initiative, a group of the MIT Media Lab. The goal of the program is to gather and support technologists from the Middle East to work on education tools for refugee learners. 
+The development of a Git-based learning platform is part of a larger project called the Refugee Learning Accelerator (RLA). RLA is a program run by the Learning Initiative, a group of the MIT Media Lab. The goal of the program is to gather and support technologists from the Middle East to work on education tools for refugee learners. 
 
 The program ran in three phases from fall of 2017 through spring of 2018. First, interested candidates applied as teams through an open application. Around 100 participants were selected for the first phase of the program, which consisted of a 6-week online course during November and December of 2018. Every two weeks of the course, a new technology was introduced and teams were challenged to design, and ideally build a prototype for, an education solution using that technology. Webinars held throughout the 6 weeks helped participants learn about the technologies. Additionally, teams received constructive feedback every week, once at the midpoint and once at the end of each challenge. The topics chosen for the online course were chatbots, human centered design, and AR/VR. A description of each challenge is included in Appendix A.
 
@@ -58,13 +58,13 @@ While one of my goals in building the platform was certainly to support the onli
 
 \section{Methodology}
 
-Ultimately the research question I hope to answer in this thesis is: how can git be adapted to support effective online learning?
+Ultimately the research question I hope to answer in this thesis is: how can Git be adapted to support effective online learning?
 
 This can be covered in three parts:
 \begin{itemize}
 	\item First, I turn to established theory on digital learning pedagogy and principles to guide the characteristics and ultimately define interactions of the platform. In particular, I derive these interactions from first principles of learning and target learning outcomes rather than by attempting to move traditional classroom interactions online.
 	\item Second, I implement a technical platform that supports these interactions. The bulk of this work is done before the pilot course, but also includes the technical operation of the course. As much as possible, I rely on third-party software to increase reliability, reproducibility, and familiarity. Creating a learning platform from scratch is beyond the scope of this work.
-	\item Third, I use the pilot run to evaluate not only how these interactions work in the manifested platform, but also how well they work. In order to gather feedback, I conducted an anonymous survey among participants in the online course. This consisted of a form send by email, the questions of which are included in Appendix B. Responses to the survey as well as anecdotal evaluation are reported in Chapter 5.
+	\item Third, I use the pilot run to evaluate not only how these interactions work in the manifested platform, but also how well they work. In order to gather feedback, I conducted an anonymous survey among participants in the online course. This consisted of a form sent by email, the questions of which are included in Appendix B. Responses to the survey as well as anecdotal evaluation are reported in Chapter 5.
 \end{itemize}
 
 The code and course content are all freely available online for use in future iterations of such research.~\cite{rla}
@@ -77,7 +77,7 @@ Educational theory and pedagogy is a vast field and far outdates the advent of o
 
 An online platform to support learning is not a new concept. A learning management system (LMS) is a tool that helps instructors supervise an online course, and popular commercial LMSs exist such as Blackboard, Moodle, and Canvas. 
 
-A traditional LMS platform typically provides features including tracking learner grades, file management for assignments and corresponding submissions, and communication mechanisms for instructor announcements or learner questions. These features are often more convenient duplicates of the same in-person interactions of traditional classrooms. Furthermore, LMS usually don’t fully encompass the activities of a class, leaving the core of the learning for classroom instruction or learner self-study. 
+A traditional LMS platform typically provides features including tracking learner grades, file management for assignments and corresponding submissions, and communication mechanisms for instructor announcements or learner questions. These features are often more convenient duplicates of the same in-person interactions of traditional classrooms. Furthermore, LMS usually don't fully encompass the activities of a class, leaving the core of the learning for classroom instruction or learner self-study. 
 
 Of note, the issue of learner collaboration, which is often a component of more creative, project-based assignments, is often not properly addressed in traditional LMS platforms. This intersection of collaboration and technology is instead known as computer-supported collaborative work (CSCW), and families of tools exist to support online collaboration. Learners thus would have to take to these external tools to collaborate, depending on the particular assignment.
 
@@ -119,9 +119,9 @@ mastery->feedback, community}
 
 We set out to develop a new platform to address 
 
-\section{Overview of git}
+\section{Overview of Git}
 
-A specific technology used for online collaboration, particularly in software engineering, is git. Created in 2005 by Linus Torvalds as a tool to support the development of the Linux kernel, git allows users to each have a local copy of a set of files and sync between their copy and a central server in a coordinated fashion. Git is also a version control system, hence allowing users to backtrack changes or split into multiple branches of work from the same starting state. [git]
+A specific technology used for online collaboration, particularly in software engineering, is Git. Created in 2005 by Linus Torvalds as a tool to support the development of the Linux kernel, Git allows users to each have a local copy of a set of files and sync between their copy and a central server in a coordinated fashion. Git is also a version control system, hence allowing users to backtrack changes or split into multiple branches of work from the same starting state.~\cite{githistory}
 
 Git is used as a command line tool, in which users type text commands to perform the desired git actions. In addition, there are graphical interfaces available which serve as a wrapper and aid for users who prefer not to use the command line. Overall, git is considered a powerful collaboration tool, but involves an upfront investment to learn its operations.
 
@@ -129,15 +129,15 @@ Git is used as a command line tool, in which users type text commands to perform
 
 Use of group chats such as gitter and mattermost to complement projects
 
-\section{Other uses of git}
+\section{Other uses of Git}
 
-While git was initially created for and has been largely relied on by the software development community, its use has spread to other knowledge workers.
+While Git was initially created for and has been largely relied on by the software development community, its use has spread to other knowledge workers.
 
-An example of applying git to a traditional use case is cookbooks: a service called Fork the Cookbook exists in which users can fork, or copy, an existing recipe and tweak it to make it their own. This creates a collaborative and decentralized platform for sharing cooking recipes.~\cite{forkthecookbook}
+An example of applying Git to a traditional use case is cookbooks: a service called Fork the Cookbook exists in which users can fork, or copy, an existing recipe and tweak it to make it their own. This creates a collaborative and decentralized platform for sharing cooking recipes.~\cite{forkthecookbook}
 
 Example applications include recipes, legislation, datasets, general CMS, etc.
 
-\section{Existing git-based learning systems}
+\section{Existing Git-based learning systems}
 
 \chapter{Platform Development}
 
@@ -155,24 +155,24 @@ Communication. Communication lays the groundwork for the type of community forme
 
 Permissions. We will have to decide how to control authority to perform actions and visibility of content. On one hand, we believe that the platform should be as open as possible. This would allow students the opportunity to pursue their curiosities, to learn from each other’s work, and to feel that they have a complete understanding of the platform. On the other hand, we would like to prevent either intentional or accidental actions that may destroy or hinder other participants’ work. We also anticipate that sensitive topics would not be expressed without a private way of doing so and thus would like to allow for that.
 
-\subsection{Suitability of git}
+\subsection{Suitability of Git}
 
-While git was not designed as a learning platform, we found in it suitable qualities. Here we discuss the benefits of git as a tool for fostering positive educational interactions.
+While Git was not designed as a learning platform, we found in it suitable qualities. Here we discuss the benefits of git as a tool for fostering positive educational interactions.
 
-As a version control system, the currency is units of work rather than final deliverables. It is oriented around building larger projects through a series of work. Git gives learners room to play, since branches can be made to explore new ideas and unsuccessful changes can be easily reverted. It is also very much designed for collaborating with peers. After all, its raison detre is to be able to build upon each others’ work without conflict. Documenting everyone’s work openly and allowing collaboration creates a shared space from which a community could form, just as many have in the open source world. It gives flexibility in what tools people can use for their work, since all file types are supported. Finally, because git is already widely-used, its kinks have been worked out and help material is readily available online, making it easier for new adopters.
+As a version control system, the currency is units of work rather than final deliverables. It is oriented around building larger projects through a series of work. Git gives learners room to play, since branches can be made to explore new ideas and unsuccessful changes can be easily reverted. It is also very much designed for collaborating with peers. After all, its raison detre is to be able to build upon each others’ work without conflict. Documenting everyone’s work openly and allowing collaboration creates a shared space from which a community could form, just as many have in the open source world. It gives flexibility in what tools people can use for their work, since all file types are supported. Finally, because Git is already widely-used, its kinks have been worked out and help material is readily available online, making it easier for new adopters.
 
-As discussed in the previous section, git can also be adapted as the underlying mechanism of a content management system. As a versioning system, git enables publishing new content, updates, and revisions in a fashion that can be distributed. Popular git hosting websites such as Github and GitLab have built-in support for Markdown-formatted files and support and static web pages.
+As discussed in the previous section, Git can also be adapted as the underlying mechanism of a content management system. As a versioning system, Git enables publishing new content, updates, and revisions in a fashion that can be distributed. Popular git hosting websites such as Github and GitLab have built-in support for Markdown-formatted files and support and static web pages.
 
 \subsection{Platform architecture}
 
 The details of the design were chosen to support the needs of RLA’s weekly cycle. In each week of the cycle, content is released at the beginning and learners worked towards a particular milestone by the end of the week. Throughout the week learners can collaborate and participate in seminars.
 
-To achieve these requirements, there are four interactions that the core git-based platform needs to support:
+To achieve these requirements, there are four interactions that the core Git-based platform needs to support:
 \begin{itemize}
 \item \textbf{Onboarding.} We want learners to be able to register for the course as easily as possible, yet still provide basic information to introduce themselves to the rest of the learner community. 
 \item \textbf{Content distribution.} New material posted at the beginning of the week includes a description of the week’s challenge and targeted milestones. In addition, relevant resources relevant for the week are gathered and provided for learners’ reference. This content may also sometimes include skeleton code or template documents in which learners can report their progress. These pieces of content require the additional ability of being pulled into learners’ working directories.
 \item \textbf{Submission.} At the end of the week, learners need a mechanism to put together a package representing the state of their work on which to receive feedback. We also encourage learners to use these submissions as a resource to learn from other learners’ approach to the challenge.
-\item \textbf{Feedback.} We believe frequent personalized feedback can be helpful to learners and also cultivates a culture of collaboration. Hence we’d like our platform to provide an interface where a reviewer can easily peruse a learner’s work and leave comments. Note that this process is similar in structure to code review used in software engineering, so we can utilize similar features in the git hosting service.
+\item \textbf{Feedback.} We believe frequent personalized feedback can be helpful to learners and also cultivates a culture of collaboration. Hence we’d like our platform to provide an interface where a reviewer can easily peruse a learner’s work and leave comments. Note that this process is similar in structure to code review used in software engineering, so we can utilize similar features in the Git hosting service.
 \end{itemize}
 
 In addition to managing the course content, we also want to support a few forms of communication that empower learners:
@@ -186,11 +186,11 @@ In addition to managing the course content, we also want to support a few forms 
 
 \subsection{Git hosting service}
 
-In order to have a group of distributed learners participate in the course using git, we needed to have an server accessible by the Internet running git where the content would be hosted. We looked at two of the most popular git hosting services, Github and GitLab. Both offer a SaaS model where they host git on their servers and simply provide an interface, as well as a self-hosted version where they provide the software but leave running a server to the customer.
+In order to have a group of distributed learners participate in the course using Git, we needed to have an server accessible by the Internet running Git where the content would be hosted. We looked at two of the most popular Git hosting services, Github and GitLab. Both offer a SaaS model where they host Git on their servers and simply provide an interface, as well as a self-hosted version where they provide the software but leave running a server to the customer.
 
 We compared options the two in terms of features, styles, and technical performance.
 
-The two options had very similar sets of features. Github has organizations, teams, repositories, and pull requests, while GitLab has groups, subgroups, projects, and merge requests. Both expose a webhook for git commits, allow in-browser editing of files, and can serve hosted files as static websites. Both offer free or discounted private repositories/projects for educational uses. On a few points GitLab had additional features, such as being able to request to join a group and being able to trigger scripts that run before serving static websites.
+The two options had very similar sets of features. Github has organizations, teams, repositories, and pull requests, while GitLab has groups, subgroups, projects, and merge requests. Both expose a webhook for Git commits, allow in-browser editing of files, and can serve hosted files as static websites. Both offer free or discounted private repositories/projects for educational uses. On a few points GitLab had additional features, such as being able to request to join a group and being able to trigger scripts that run before serving static websites.
 
 Many software companies use Github to host either all their code or even just their open source projects, and as a result a Github profile feels very much like a professional portfolio. We wanted to make sure learners are comfortable experimenting and making mistakes, and took into consideration that some may feel less inclined to do so if the work would permanently be associated with their professional portfolio. 
 
@@ -212,7 +212,7 @@ From our options we chose to run a self-hosted instance of Mattermost, largely d
 
 \section{Technical Implementation}
 
-\wip{In this section we outline the initial implementation of the platform. We assume a technical background, in particular familiarity with Internet architecture and git.
+\wip{In this section we outline the initial implementation of the platform. We assume a technical background, in particular familiarity with Internet architecture and Git.
 6.1 Server configuration
 DigitalOcean droplet https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-gitlab-on-ubuntu-16-04 
 GitLab [built in for DO]
@@ -223,7 +223,7 @@ Lets encrypt
 Brief overview of possibilities
 Step by step description of how it all worked
 6.3 Scripts
-As much as possible, git-related operations of the platform were automated to ease the burden on the instructors. 
+As much as possible, Git-related operations of the platform were automated to ease the burden on the instructors. 
 Onboarding membership request poller
 Onboarding group creation
 Health check with email notifications
