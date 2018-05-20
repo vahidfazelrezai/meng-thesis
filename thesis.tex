@@ -1,9 +1,11 @@
 \documentclass[12pt,twoside,vi]{mitthesis}
 \usepackage[T1]{fontenc} % font encoding
 \usepackage[numbers]{natbib}
+\usepackage{graphicx}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage{color}
-\newcommand{\wip}[1]{{\color{red} #1}}
+\newcommand{\wip}[1]{{\color{red} To do...}}
+% \newcommand{\wip}[1]{{\color{red} #1}}
 \begin{document}
 \title{Git-Based Platform for Distributed Learning Communities}
 \author{Vahid Fazel-Rezai}
@@ -22,19 +24,15 @@ Instructors use software called learning management systems to administer online
 \end{abstractpage}
 \cleardoublepage
 \section*{Acknowledgments}
-\wip{I'd like to thank the members of the MIT Media Lab Learning Initiative. 
-
-I'd like to acknowledge my advisor Philipp Schmidt for , Genevieve Barrons for .
-
-I am grateful for ... which provided the funding for this project. This work would not be possible without it.}
+\wip{Acknowledgments...}
 
 \tableofcontents
 
-% \newpage
-% \listoffigures
+\newpage
+\listoffigures
 
-% \newpage
-% \listoftables
+\newpage
+\listoftables
 
 \chapter{Introduction}
 
@@ -48,9 +46,9 @@ The following sections outlines the approach taken towards this study. Chapters 
 
 The development of a git-based learning platform is part of a larger project called the Refugee Learning Accelerator (RLA). RLA is a program run by the Learning Initiative, a group of the MIT Media Lab. The goal of the program is to gather and support technologists from the Middle East to work on education tools for refugee learners. 
 
-The program ran in three phases from fall of 2017 through spring of 2018. First, interested candidates applied as teams through an open application. Around 80 participants were selected for the first phase of the program, which consisted of a 6-week online course during October and November of 2018. Every two weeks of the course, a new technology was introduced and teams were challenged to design, and ideally build a prototype for, an education solution using that technology. Webinars held throughout the 6 weeks helped participants learn about the technologies. Additionally, teams received constructive feedback every week, once at the midpoint and once at the end of each challenge. The topics chosen for the online course were chatbots, human centered design, and AR/VR. A description of each challenge is included in Appendix A.
+The program ran in three phases from fall of 2017 through spring of 2018. First, interested candidates applied as teams through an open application. Around 100 participants were selected for the first phase of the program, which consisted of a 6-week online course during November and December of 2018. Every two weeks of the course, a new technology was introduced and teams were challenged to design, and ideally build a prototype for, an education solution using that technology. Webinars held throughout the 6 weeks helped participants learn about the technologies. Additionally, teams received constructive feedback every week, once at the midpoint and once at the end of each challenge. The topics chosen for the online course were chatbots, human centered design, and AR/VR. A description of each challenge is included in Appendix A.
 
-The second phase of the program brought selected teams together for a week-long, in-person workshop in Amman, Jordan. There, teams forged their project ideas through rapid iterations of feedback and field observation. One important aspect of the workshop was also the building of a supportive community, where members encourage one another to pursue their projects and help in connecting each other to resources.
+The second phase of the program brought 14 selected teams together for a week-long, in-person workshop in Amman, Jordan. There, teams forged their project ideas through rapid iterations of feedback and field observation. One important aspect of the workshop was also the building of a supportive community, where members encourage one another to pursue their projects and help in connecting each other to resources.
 
 Following the workshop, teams worked independently to bring their projects to fruition in partnership with local NGOs and with the continued support of the RLA community.~\cite{rla}
 
@@ -73,17 +71,21 @@ The code and course content are all freely available online for use in future it
 
 \chapter{Background}
 
-Research in education is a vast topic and far outdates the advent of online education. Here we just briefly touch on 
+Educational theory and pedagogy is a vast field and far outdates the advent of online education. Here we briefly touch on frameworks that went into consideration for this thesis. 
 
 \section{Traditional Learning Platforms}
 
-A learning management system (LMS) is a tool that helps instructors supervise an online course. Popular commercial LMSs are Blackboard, Moodle, and Canvas. 
+An online platform to support learning is not a new concept. A learning management system (LMS) is a tool that helps instructors supervise an online course, and popular commercial LMSs exist such as Blackboard, Moodle, and Canvas. 
 
 A traditional LMS platform typically provides features including tracking learner grades, file management for assignments and corresponding submissions, and communication mechanisms for instructor announcements or learner questions. These features are often more convenient duplicates of the same in-person interactions of traditional classrooms. Furthermore, LMS usually don’t fully encompass the activities of a class, leaving the core of the learning for classroom instruction or learner self-study. 
 
 Of note, the issue of learner collaboration, which is often a component of more creative, project-based assignments, is often not properly addressed in traditional LMS platforms. This intersection of collaboration and technology is instead known as computer-supported collaborative work (CSCW), and families of tools exist to support online collaboration. Learners thus would have to take to these external tools to collaborate, depending on the particular assignment.
 
 \section{Foundational Theory}
+
+We begin with the assumption that humans have innate desire and ability to pursue their interests, and the role of the learning environment is to foster the right conditions. To break down this idea, we rely on 
+
+
 
 \wip{Assuming SDT (autonomy, relevance, competence), which explains why humans have an innate desire to do things and have individualized passions, we use the 4P's to achieve learning outcomes (reason ------ design ----, work collaboratively.... mitch reference)
 
@@ -155,15 +157,11 @@ Permissions. We will have to decide how to control authority to perform actions 
 
 \subsection{Suitability of git}
 
-\wip{In this section we 
-
 While git was not designed as a learning platform, we found in it suitable qualities. Here we discuss the benefits of git as a tool for fostering positive educational interactions.
 
-As a version control system, the currency is units of work rather than final deliverables. It is oriented around building larger projects through a series of work. We allow learners to choose their work based on their passions and do not specify a particular end goal. Git gives learners room to play, since branches can be made to explore new ideas and unsuccessful changes can be easily reverted. It is also very much designed for collaborating with peers. After all, its raison detre is to be able to build upon each others’ work without conflict. Documenting everyone’s work openly and allowing collaboration creates a shared space from which a community could form, just as many have in the open source world. Finally, because git is already widely-used, its kinks have been worked out and help material is readily available online, making it easier for new adopters.
+As a version control system, the currency is units of work rather than final deliverables. It is oriented around building larger projects through a series of work. Git gives learners room to play, since branches can be made to explore new ideas and unsuccessful changes can be easily reverted. It is also very much designed for collaborating with peers. After all, its raison detre is to be able to build upon each others’ work without conflict. Documenting everyone’s work openly and allowing collaboration creates a shared space from which a community could form, just as many have in the open source world. It gives flexibility in what tools people can use for their work, since all file types are supported. Finally, because git is already widely-used, its kinks have been worked out and help material is readily available online, making it easier for new adopters.
 
-Flexibility in creation tools, format, etc
-
-As discussed in the previous section, git can also be adapted as the underlying mechanism of a content management system. As a versioning system, git enables publishing new content, updates, and revisions in a fashion that can be distributed. Popular git hosting websites such as Github and GitLab have built-in support for Markdown-formatted files and support and static web pages.}
+As discussed in the previous section, git can also be adapted as the underlying mechanism of a content management system. As a versioning system, git enables publishing new content, updates, and revisions in a fashion that can be distributed. Popular git hosting websites such as Github and GitLab have built-in support for Markdown-formatted files and support and static web pages.
 
 \subsection{Platform architecture}
 
@@ -210,9 +208,11 @@ From our options we chose to run a self-hosted instance of Mattermost, largely d
 
 \subsection{Server infrastructure}
 
+\wip{reliance on other software (letsencrypt, nginx, python and javascript, bash)}
+
 \section{Technical Implementation}
 
-In this section we outline the initial implementation of the platform. We assume a technical background, in particular familiarity with Internet architecture and git.
+\wip{In this section we outline the initial implementation of the platform. We assume a technical background, in particular familiarity with Internet architecture and git.
 6.1 Server configuration
 DigitalOcean droplet https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-gitlab-on-ubuntu-16-04 
 GitLab [built in for DO]
@@ -230,7 +230,7 @@ Health check with email notifications
 Create subtrees
 Create merge request
 Merge
-Analyze progress
+Analyze progress}
 
 
 \chapter{Results of RLA Pilot}
@@ -239,19 +239,127 @@ For six weeks in October and November of 2017, the approximately 80 learners par
 
 \section{User Experience}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{fig-course-central.png}
+\caption{The \texttt{course-central} repository.}
+\end{figure}
+
 \wip{Frame around tensions, for each broad set of interactions go over "what did it look like", "how did it work", and "how well did it work"}
 
 \chapter{Conclusion}
 
-\wip{narrative summary of thesis
-
-an honest set of personal takeaways (from which reader can judge whether to replicate work) and feeligns about future work}
+\wip{narrative summary of thesis, an honest set of personal takeaways (from which reader can judge whether to replicate work) and feeligns about future work}
 
 \appendix
+
 \chapter{RLA Challenge Descriptions}
-\wip{descriptions go here}
+
+The online course was divided into three challenges, each of which had two sets of deliverables (one for each week). Here we provide brief descriptions of these. More information as well as various resources related to the topics of each challenge is available online.~\cite{rla} All content was developed by members of the MIT Media Lab Learning Initiative unless otherwise noted.
+
+\begin{enumerate}
+\item \textbf{Challenge 1 - chatbots:} How might we use chatbots to support refugee learners inside or outside of the classroom? 
+\begin{itemize}
+\item Describe your concept for a chatbot in one or two paragraphs. Use visuals (mockups, diagrams) if possible. It is important to be as specific as possible while mapping out the scope of the project as this will greatly influence implementation and the tools to use. Answer the following questions:
+\begin{itemize}
+\item What problem/ challenge will the chatbot solve? 
+\item How will the chatbot solve it? 
+\item Who is the primary user and how will the chatbot engage the user?
+\item What activity does the chatbot facilitate that would not otherwise be possible? 
+\item What challenges do you expect to encounter?
+\end{itemize}
+\item Demonstrate how your chatbot works. Videos, screenshots or images are encouraged. Add a short description and answer the following questions: 
+\begin{itemize}
+\item How did you build it? (Platform and technology)
+\item What challenges did you face?
+\item What aspect of the chatbot do you like best? 
+\item What would you different in the future? 
+\item Please also add a link to your code!
+\end{itemize}
+\end{itemize}
+\item \textbf{Challenge 2 - human centered design:} How might we use everyday technologies as learning tools?
+\begin{itemize}
+\item Make an initial prototype. Questions to answer:
+\begin{itemize}
+\item What solution are you testing? (and why did you choose it?)
+\item Submit your prototype (use photos, video, diagrams etc.)
+\item Describe the prototype and why you chose this prototyping method. 
+\item What did you learn during the prototyping process?
+\item Who are your intended users for testing?
+\end{itemize}
+\item Test it with users. Questions to answer:
+\begin{itemize}
+\item How did you select your test users? 
+\item What was the setting of the test? 
+\item What were the main points of feedback you received (share a summary)? 
+\item What changes would make to your idea/project based on the feedback?
+\item What parts of the Human Centered Design process were new to you?
+\item What parts of the Human Centered Design process seemed most useful to you?
+\end{itemize}
+\end{itemize}
+\item \textbf{Challenge 3 - augmented reality (AR):} How might we use Augmented Realtiy (AR) to support refugee language learning outside the classroom?
+\begin{itemize}
+\item Describe your concept for how low fidelity Augmented Reality could be used to support language learning in one or two paragraphs. Use visuals (mockups, diagrams) if possible. It is important to be as specific as possible while mapping out the scope of the project as this will greatly influence implementation and the tools to use. Answer the following questions:
+\begin{itemize}
+\item What problem/challenge will the AR experience solve? 
+\item How will the AR experience solve it? 
+\item Who is the primary user and how will the AR experience engage the user?
+\item What hardware does the user need? Is this realistic in the refugee context? 
+\item What activity does the AR experience facilitate that would not otherwise be possible? 
+\item What challenges do you expect to encounter? 
+\end{itemize}
+\item Demonstrate how your AR experience works. Videos, screenshots or images are encouraged. Add a short description and answer the following questions: 
+\begin{itemize}
+\item How did you build it? (Platform and technology)
+\item What challenges did you face?
+\item What aspect of the AR experience do you like best? 
+\item What would you different in the future? 
+\item Please also add a link to your code!
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+
 \chapter{RLA Online Course Survey}
-\wip{questions go here}
+
+The following questions were sent in an email to participants to gather feedback and evaluate how well the platform worked. The survey was anonymous and asked for consent for responses to be used in this research study. A total of 11 participants chose to respond.
+
+\begin{enumerate}
+\item Git
+\begin{itemize}
+\item How much had you used git before the course?
+\item To what extent did you learn git during the course?
+\item How useful would you say knowledge of git was for collaborating with your team?
+\end{itemize}
+\item Course materials
+\begin{itemize}
+\item Did you have any difficulty accessing course materials? If so, what were they?
+\item Did you find the course materials helpful in working on your projects? If so, which materials were most helpful?
+\end{itemize}
+\item Signing up
+\begin{itemize}
+\item Did everyone on your team submit their own initial sign up on GitLab?
+\item How many people on your team used GitLab after the initial sign up? Was there a reason some did not?
+\item Did you find it useful to have a list of participants in the course?
+\end{itemize}
+\item Submission
+\begin{itemize}
+\item Would you have preferred an automatic, continuous submission (as opposed to your work being snapshot at a set time)?
+\item Did you run into any issues in submitting your work? If so, what were they?
+\item Were you able to see other team's submitted work? If so, did you find that useful?
+\end{itemize}
+\item Seminars
+\begin{itemize}
+\item What were your favorite and least favorite features of the Unhangout platform for seminars?
+\item Did you find the seminars useful in ideating for your projects? If so, were any seminars particularly useful?
+\item Did you find the seminars useful for the technical side of your projects? If so, were any particularly useful?
+\end{itemize}
+\item Team
+\begin{itemize}
+\item How was the technical work distributed among your team?
+\item Was your team physically located in the same place?
+\end{itemize}
+\end{enumerate}
+
 \clearpage
 \newpage
 \begin{singlespace}
