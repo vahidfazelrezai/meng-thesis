@@ -85,8 +85,6 @@ Of note, the issue of learner collaboration, which is often a component of more 
 
 We begin with the assumption that humans have innate desire and ability to pursue their interests, and the role of the learning environment is to foster the right conditions. To break down this idea, we rely on 
 
-
-
 \wip{Assuming SDT (autonomy, relevance, competence), which explains why humans have an innate desire to do things and have individualized passions, we use the 4P's to achieve learning outcomes (reason ------ design ----, work collaboratively.... mitch reference)
 
 We had several goals in mind when deciding how to craft the online course, which can be summarized in four principles: 
@@ -98,7 +96,7 @@ We believe learners do best when they are engaged in th
 
 These principles largely rely on students being drivers of their own learning. 
 
-We turn to self-determination theory (SDT) as a model with which to understand learners’ motivation. SDT [citation needed]
+We turn to self-determination theory (SDT) as a model with which to understand learners' motivation. SDT [citation needed]
 
 Self-determination theory: autonomy, competence, relatedness. Hence, we prioritize these in designing features of the platform.
 }
@@ -117,7 +115,7 @@ mastery->feedback, community}
 
 \chapter{Related Work}
 
-We set out to develop a new platform to address 
+\wip{We set out to develop a new platform to address }
 
 \section{Overview of Git}
 
@@ -127,52 +125,58 @@ Git is used as a command line tool, in which users type text commands to perform
 
 \section{Communities of practice}
 
-Use of group chats such as gitter and mattermost to complement projects
+\wip{Use of group chats such as gitter and mattermost to complement projects}
 
 \section{Other uses of Git}
 
-While Git was initially created for and has been largely relied on by the software development community, its use has spread to other knowledge workers.
+\wip{While Git was initially created for and has been largely relied on by the software development community, its use has spread to other knowledge workers.
 
 An example of applying Git to a traditional use case is cookbooks: a service called Fork the Cookbook exists in which users can fork, or copy, an existing recipe and tweak it to make it their own. This creates a collaborative and decentralized platform for sharing cooking recipes.~\cite{forkthecookbook}
 
-Example applications include recipes, legislation, datasets, general CMS, etc.
+Example applications include recipes, legislation, datasets, general CMS, etc.}
 
 \section{Existing Git-based learning systems}
 
+\wip{look through references}
+
 \chapter{Platform Development}
+
+In this chapter we walk through the design and implementation of the Git-based platform. 
 
 \section{Design}
 
-In this section we lay out the high-level design for the RLA course. The git-based platform is developed as just one of the components of this course, but is always intended to be applicable outside the context of RLA to other future courses.
+In this section I lay out the high-level design for the RLA course. The platform and pedagogy are closely linked, but one does not necessarily imply the other. In other words, while a platform can be built to support the desired pedagogy, the content and facilitation are still critical to achieving it. On the other hand, a pedagogy may not be possible without a platform that can support it. 
+
+Hence, the design must apply to the course as a whole, through which it will also apply to the platform. Though Git-based platform is developed as just one of the components, it is always intended to be applicable outside the context of RLA to other future courses.
 
 \subsection{Balancing tensions}
 
-We also aimed to foster a community that would extend into the later phases of the Accelerator. 
+\wip{We also aimed to foster a community that would extend into the later phases of the Accelerator. 
 
 Finally, we rely on good software development practices and use popular tools where possible.
 
 Communication. Communication lays the groundwork for the type of community formed. We aim to have instructors clearly communicate how to use the platform and be able to guide students throughout the course. We would like to allow natural and structured opportunities to ask questions and give feedback. General course information should be readily accessible to students.
 
-Permissions. We will have to decide how to control authority to perform actions and visibility of content. On one hand, we believe that the platform should be as open as possible. This would allow students the opportunity to pursue their curiosities, to learn from each other’s work, and to feel that they have a complete understanding of the platform. On the other hand, we would like to prevent either intentional or accidental actions that may destroy or hinder other participants’ work. We also anticipate that sensitive topics would not be expressed without a private way of doing so and thus would like to allow for that.
+Permissions. We will have to decide how to control authority to perform actions and visibility of content. On one hand, we believe that the platform should be as open as possible. This would allow students the opportunity to pursue their curiosities, to learn from each other's work, and to feel that they have a complete understanding of the platform. On the other hand, we would like to prevent either intentional or accidental actions that may destroy or hinder other participants' work. We also anticipate that sensitive topics would not be expressed without a private way of doing so and thus would like to allow for that.}
 
 \subsection{Suitability of Git}
 
-While Git was not designed as a learning platform, we found in it suitable qualities. Here we discuss the benefits of git as a tool for fostering positive educational interactions.
+While Git was not originally designed as a learning platform, we found in it suitable qualities. Here we discuss the benefits of git as a tool for fostering positive educational interactions.
 
-As a version control system, the currency is units of work rather than final deliverables. It is oriented around building larger projects through a series of work. Git gives learners room to play, since branches can be made to explore new ideas and unsuccessful changes can be easily reverted. It is also very much designed for collaborating with peers. After all, its raison detre is to be able to build upon each others’ work without conflict. Documenting everyone’s work openly and allowing collaboration creates a shared space from which a community could form, just as many have in the open source world. It gives flexibility in what tools people can use for their work, since all file types are supported. Finally, because Git is already widely-used, its kinks have been worked out and help material is readily available online, making it easier for new adopters.
+As a version control system, the currency is units of work rather than final deliverables. It is oriented around building larger projects through a series of work. Git gives learners room to play, since branches can be made to explore new ideas and unsuccessful changes can be easily reverted. It is also very much designed for collaborating with peers. After all, its raison detre is to be able to build upon each others' work without conflict. Documenting everyone's work openly and allowing collaboration creates a shared space from which a community could form, just as many have in the open source world. It gives flexibility in what tools people can use for their work, since all file types are supported. Finally, because Git is already widely-used, its kinks have been worked out and help material is readily available online, making it easier for new adopters.
 
 As discussed in the previous section, Git can also be adapted as the underlying mechanism of a content management system. As a versioning system, Git enables publishing new content, updates, and revisions in a fashion that can be distributed. Popular git hosting websites such as Github and GitLab have built-in support for Markdown-formatted files and support and static web pages.
 
 \subsection{Platform architecture}
 
-The details of the design were chosen to support the needs of RLA’s weekly cycle. In each week of the cycle, content is released at the beginning and learners worked towards a particular milestone by the end of the week. Throughout the week learners can collaborate and participate in seminars.
+The details of the design were chosen to support the needs of RLA's weekly cycle. In each week of the cycle, content is released at the beginning and learners worked towards a particular milestone by the end of the week. Throughout the week learners can collaborate and participate in seminars.
 
 To achieve these requirements, there are four interactions that the core Git-based platform needs to support:
 \begin{itemize}
 \item \textbf{Onboarding.} We want learners to be able to register for the course as easily as possible, yet still provide basic information to introduce themselves to the rest of the learner community. 
-\item \textbf{Content distribution.} New material posted at the beginning of the week includes a description of the week’s challenge and targeted milestones. In addition, relevant resources relevant for the week are gathered and provided for learners’ reference. This content may also sometimes include skeleton code or template documents in which learners can report their progress. These pieces of content require the additional ability of being pulled into learners’ working directories.
-\item \textbf{Submission.} At the end of the week, learners need a mechanism to put together a package representing the state of their work on which to receive feedback. We also encourage learners to use these submissions as a resource to learn from other learners’ approach to the challenge.
-\item \textbf{Feedback.} We believe frequent personalized feedback can be helpful to learners and also cultivates a culture of collaboration. Hence we’d like our platform to provide an interface where a reviewer can easily peruse a learner’s work and leave comments. Note that this process is similar in structure to code review used in software engineering, so we can utilize similar features in the Git hosting service.
+\item \textbf{Content distribution.} New material posted at the beginning of the week includes a description of the week's challenge and targeted milestones. In addition, relevant resources relevant for the week are gathered and provided for learners' reference. This content may also sometimes include skeleton code or template documents in which learners can report their progress. These pieces of content require the additional ability of being pulled into learners' working directories.
+\item \textbf{Submission.} At the end of the week, learners need a mechanism to put together a package representing the state of their work on which to receive feedback. We also encourage learners to use these submissions as a resource to learn from other learners' approach to the challenge.
+\item \textbf{Feedback.} We believe frequent personalized feedback can be helpful to learners and also cultivates a culture of collaboration. Hence we'd like our platform to provide an interface where a reviewer can easily peruse a learner's work and leave comments. Note that this process is similar in structure to code review used in software engineering, so we can utilize similar features in the Git hosting service.
 \end{itemize}
 
 In addition to managing the course content, we also want to support a few forms of communication that empower learners:
@@ -194,7 +198,7 @@ The two options had very similar sets of features. Github has organizations, tea
 
 Many software companies use Github to host either all their code or even just their open source projects, and as a result a Github profile feels very much like a professional portfolio. We wanted to make sure learners are comfortable experimenting and making mistakes, and took into consideration that some may feel less inclined to do so if the work would permanently be associated with their professional portfolio. 
 
-Finally, we took into consideration the technical reliability of each option. We found that GitLab’s SaaS offering, GitLab.com, was often slow to load. For both, a self-hosted instance would include considerable setup and costs to run a server, but would allow customizations such as the domain name. Finally, though both are welcoming homes to open source projects, Gitlab has made the web platform itself open source, whereas Github’s is not.
+Finally, we took into consideration the technical reliability of each option. We found that GitLab's SaaS offering, GitLab.com, was often slow to load. For both, a self-hosted instance would include considerable setup and costs to run a server, but would allow customizations such as the domain name. Finally, though both are welcoming homes to open source projects, Gitlab has made the web platform itself open source, whereas Github's is not.
 
 For our course, we ended up opting for GitLab, and chose to mitigate performance issues by using a self-hosted instance of the free tier. However, it would certainly be possible to adapt our approach for either GitLab or Github, in the both SaaS and self-hosted models.
 
