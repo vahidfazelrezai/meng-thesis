@@ -31,8 +31,8 @@ Instructors use software called learning management systems to administer online
 \newpage
 \listoffigures
 
-\newpage
-\listoftables
+% \newpage
+% \listoftables
 
 \chapter{Introduction}
 
@@ -137,7 +137,7 @@ For each tension, there are benefits to both sides. It's a matter of balancing t
 
 \chapter{Related Work}
 
-In this chapter we survey existing technologies and platforms that we can learn or borrow from in developing a Git-based learning platform. Git has been applied to many fields, including education. 
+In this chapter we survey existing technologies and platforms that we can learn or borrow from in developing a Git-based learning platform. Git has been applied to many fields, and its application to education has recently become a lively field of research. 
 
 \section{Overview of Git}
 
@@ -155,11 +155,11 @@ Software development is an example of a community of practice, and Git was creat
 
 \section{Other uses of Git}
 
-\wip{While Git was initially created for and has been largely relied on by the software development community, its use has spread to other knowledge workers.
+While Git was initially created for and has been largely relied on by the software development community, its use has spread to other knowledge workers.
 
 An example of applying Git to a traditional use case is cookbooks: a service called Fork the Cookbook exists in which users can fork, or copy, an existing recipe and tweak it to make it their own. This creates a collaborative and decentralized platform for sharing cooking recipes.~\cite{forkthecookbook}
 
-Example applications include recipes, legislation, datasets, general CMS, etc.}
+\wip{Example applications include recipes, legislation, datasets, general CMS, etc.}
 
 \section{Existing Git-based learning systems}
 
@@ -242,18 +242,29 @@ From our options we chose to run a self-hosted instance of Mattermost, largely d
 
 \section{Technical Implementation}
 
-\wip{In this section we outline the initial implementation of the platform. We assume a technical background, in particular familiarity with Internet architecture and Git.
-6.1 Server configuration
-DigitalOcean droplet https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-gitlab-on-ubuntu-16-04 
+In this section we outline the initial implementation of the platform. We assume a technical background, in particular familiarity with Internet architecture and Git.
+
+\subsection{Server configuration}
+
+\wip{DigitalOcean droplet https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-gitlab-on-ubuntu-16-04 
 GitLab [built in for DO]
 NameCheap domain and networking
 nginx customization
-Lets encrypt
-6.2 Repo architecture
-Brief overview of possibilities
-Step by step description of how it all worked
-6.3 Scripts
-As much as possible, Git-related operations of the platform were automated to ease the burden on the instructors. 
+Lets encrypt}
+
+\subsection{Git architecture}
+
+\wip{motivate this}
+
+\begin{itemize}
+\item \textbf{Divided by folder.} All teams commit to one shared master branch, but in different folders. The perk of this approach is its simplicity, but the downside is the lack of permissions enforcement to avoid one team interfering with another’s work.
+\item \textbf{Divided by branch.} All teams commit to different branches of a single class repository. This way teams can even rebase on master to gain access to new course materials. Though tricky, it is also possible to enforce appropriate permissions so teams can only push to their own branch. The downside is that it becomes messy for teams to create their own branches for development.
+\item \textbf{Divided by repository.} All teams work in their own repositories, which are pulled together each as a subtree within a course repository. This allows for complete freedom for teams within their own repository with simple permission settings, but creates complexity in having each team’s work in multiple locations, namely in two separate repositories. 
+\end{itemize}
+
+\subsection{Custom Scripts}
+
+\wip{As much as possible, Git-related operations of the platform were automated to ease the burden on the instructors. 
 Onboarding membership request poller
 Onboarding group creation
 Health check with email notifications
