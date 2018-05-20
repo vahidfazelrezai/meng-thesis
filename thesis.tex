@@ -5,7 +5,7 @@
 \usepackage{color}
 \newcommand{\wip}[1]{{\color{red} #1}}
 \begin{document}
-\title{Git-based learning management system}
+\title{Git-Based Platform for Distributed Learning Communities}
 \author{Vahid Fazel-Rezai}
 \department{Department of Electrical Engineering and Computer Science}
 \degree{Master of Engineering in Computer Science and Engineering}
@@ -22,56 +22,68 @@ Instructors use software called learning management systems to administer online
 \end{abstractpage}
 \cleardoublepage
 \section*{Acknowledgments}
-\wip{Acknowledgments to go here...}
+\wip{I'd like to thank the members of the MIT Media Lab Learning Initiative. 
+
+I'd like to acknowledge my advisor Philipp Schmidt for , Genevieve Barrons for .
+
+I am grateful for ... which provided the funding for this project. This work would not be possible without it.}
+
 \tableofcontents
-\newpage
-\listoffigures
-\newpage
-\listoftables
+
+% \newpage
+% \listoffigures
+
+% \newpage
+% \listoftables
+
 \chapter{Introduction}
+
 New education technology, enabled by the Internet, has allowed learners to connect with their instructors and with each other digitally. Pieces of software known as learning management systems take the experience of a classroom online, giving remote learners more access to education and enriching their learning experiences with a variety of technology.
 
-In this thesis we employ git, a version control technology initially created for software developers to collaborate, as the basis of a learning platform designed to encourage collaboration and experimentation. We first discuss the learning principles that guided our design, followed by an analysis of existing technologies we can use to piece together such a git-based learning platform. We then walk through the technical implementation. Finally, we present the results of a pilot run supporting an online course for a distributed group of learners in the Refugee Learning Accelerator.
+In this thesis I employ git, a version control technology initially created for collaboration among software developers, as the foundation for an experimental learning platform. The decentralized nature of git can be utilized to expand interactions beyond replicating that which is found in traditional course. New interactions can be designed to balances the benefits of a collective learning experience with those of independent open-ended projects. In this study, I develop a prototype of such a platform and examine the results of a pilot run in an online course. As a result of this work, I hope to contribute to lowering the barrier of entry to administer an online course using a git-based learning platform. The design decisions map out an architecture that can be built upon in future courses. 
 
-As a result of this work, I hope that the barrier of entry to administer an online course using a git-based learning platform can be lowered. The design decisions made in this project produce a refined architecture that can be confidently reused in future courses. This architecture is assembled using a combination of existing third-party software and custom event-driven scripts, both of which are outlined in sections below.
-
-Before expanding on the new platform developed in this thesis, we provide a summary relevant context and previous work.
+The following sections outlines the approach taken towards this study. Chapters 2 and 3 cover the established theory and other similar projects that were taken as guidance in designing the new platform. Chapter 4 steps through the design and implementation of the platform; section 4.3 is the only section in this thesis that assumes a technical background. Finally, results of a pilot run of using the platform in an online course are presented in chapter 5. 
 
 \section{Refugee Learning Accelerator}
 
-The Refugee Learning Accelerator (RLA) was a program run by the Learning Initiative, a group of the MIT Media Lab. The program aimed to gather and support technologists from the Middle East, specifically to work on education tools for refugee learners. 
+The development of a git-based learning platform is part of a larger project called the Refugee Learning Accelerator (RLA). RLA is a program run by the Learning Initiative, a group of the MIT Media Lab. The goal of the program is to gather and support technologists from the Middle East to work on education tools for refugee learners. 
 
-Interested candidates applied as teams through an open application. Around 80 participants were selected for the first phase of the program, which consisted of a 6-week online course during October and November of 2018. Every two weeks of the course, a new technology was introduced and teams were asked to design, and ideally build a prototype for, an education solution using that technology. Seminars were held throughout to help participants learn about the technology and teams received constructive feedback every week, once at the midpoint and once at the end of each challenge. The topics chosen for the online course were chatbots, human centered design, and AR/VR.
+The program ran in three phases from fall of 2017 through spring of 2018. First, interested candidates applied as teams through an open application. Around 80 participants were selected for the first phase of the program, which consisted of a 6-week online course during October and November of 2018. Every two weeks of the course, a new technology was introduced and teams were challenged to design, and ideally build a prototype for, an education solution using that technology. Webinars held throughout the 6 weeks helped participants learn about the technologies. Additionally, teams received constructive feedback every week, once at the midpoint and once at the end of each challenge. The topics chosen for the online course were chatbots, human centered design, and AR/VR. A description of each challenge is included in Appendix A.
 
-The online course served as a pilot for the learning platform discussed in this thesis. Following the course selected teams went on to participate in a week-long in-person workshop in Amman to nurture their project ideas and finally build out their ideas with funding and partnerships. Following the course, they were also surveyed about their experience as a means of gathering feedback for the platform. [refugeelearning]
+The second phase of the program brought selected teams together for a week-long, in-person workshop in Amman, Jordan. There, teams forged their project ideas through rapid iterations of feedback and field observation. One important aspect of the workshop was also the building of a supportive community, where members encourage one another to pursue their projects and help in connecting each other to resources.
 
-\wip{Funding for RLA including this study and the development of this platform was generously provided by the open society foundation}
+Following the workshop, teams worked independently to bring their projects to fruition in partnership with local NGOs and with the continued support of the RLA community.~\cite{rla}
 
-We ran RLA with ... participants and instructors
+RLA is the product of the collective effort by members of the Learning Initiative and others passionate about finding creative ways to nurture learning, including the motivated participants, many of whom were working on their projects meanwhile also taking on a full-time load at work or as a student. The team of instructors included researchers and students from MIT and other affiliated experts. Mentors and speakers from all backgrounds donated their time to assisting teams through the webinars and at the workshop. The development of a learning platform was just one component in the operation of creating and executing the RLA program. 
 
-We wrote a survey, questions in appendix, and got it approved by the irb. we sent the survey out by email and reviewed the responses.
-
+While one of my goals in building the platform was certainly to support the online course of RLA, I also hoped to explore the possibilities in its design. In this way, the online course of RLA served also as a pilot run for the platform in order to evaluate its utility and shortcomings. 
 
 \section{Methodology}
 
-\wip{
-look up ``design research'' papers from the media lab and see their methodology
+Ultimately the research question I hope to answer in this thesis is: how can git be adapted to support effective online learning?
 
-We decided on the type of course we wanted to design for RLA, and set out on creating all the components. In terms of the online platform, we defined our interactions and ...
+This can be covered in three parts:
+\begin{itemize}
+	\item First, I turn to established theory on digital learning pedagogy and principles to guide the characteristics and ultimately define interactions of the platform. In particular, I derive these interactions from first principles of learning and target learning outcomes rather than by attempting to move traditional classroom interactions online.
+	\item Second, I implement a technical platform that supports these interactions. The bulk of this work is done before the pilot course, but also includes the technical operation of the course. As much as possible, I rely on third-party software to increase reliability, reproducibility, and familiarity. Creating a learning platform from scratch is beyond the scope of this work.
+	\item Third, I use the pilot run to evaluate not only how these interactions work in the manifested platform, but also how well they work. In order to gather feedback, I conducted an anonymous survey among participants in the online course. This consisted of a form send by email, the questions of which are included in Appendix B. Responses to the survey as well as anecdotal evaluation are reported in Chapter 5.
+\end{itemize}
 
-We implemented the }
+The code and course content are all freely available online for use in future iterations of such research.~\cite{rla}
 
 \chapter{Background}
 
-\section{Traditional learning platforms}
+Research in education is a vast topic and far outdates the advent of online education. Here we just briefly touch on 
+
+\section{Traditional Learning Platforms}
 
 A learning management system (LMS) is a tool that helps instructors supervise an online course. Popular commercial LMSs are Blackboard, Moodle, and Canvas. 
 
-A traditional LMS platform typically provides features including tracking learner grades, file management for assignments and corresponding submissions, and communication mechanisms for instructor announcements or learner questions. [cscw15] These features are often more convenient duplicates of the same in-person interactions of traditional classrooms. Furthermore, LMS usually don’t fully encompass the activities of a class, leaving the core of the learning for classroom instruction or learner self-study. 
+A traditional LMS platform typically provides features including tracking learner grades, file management for assignments and corresponding submissions, and communication mechanisms for instructor announcements or learner questions. These features are often more convenient duplicates of the same in-person interactions of traditional classrooms. Furthermore, LMS usually don’t fully encompass the activities of a class, leaving the core of the learning for classroom instruction or learner self-study. 
 
-Of note, the issue of learner collaboration, which is often a component of more creative, project-based assignments, is often not properly addressed in traditional LMS platforms. This intersection of collaboration and technology is instead known as computer-supported collaborative work (CSCW), and families of tools exist to support online collaboration. Learners thus would have to take to these external tools to collaborate, depending on the particular assignment. [farooq]
+Of note, the issue of learner collaboration, which is often a component of more creative, project-based assignments, is often not properly addressed in traditional LMS platforms. This intersection of collaboration and technology is instead known as computer-supported collaborative work (CSCW), and families of tools exist to support online collaboration. Learners thus would have to take to these external tools to collaborate, depending on the particular assignment.
 
-\section{Foundational theory}
+\section{Foundational Theory}
 
 \wip{Assuming SDT (autonomy, relevance, competence), which explains why humans have an innate desire to do things and have individualized passions, we use the 4P's to achieve learning outcomes (reason ------ design ----, work collaboratively.... mitch reference)
 
@@ -236,6 +248,8 @@ For six weeks in October and November of 2017, the approximately 80 learners par
 an honest set of personal takeaways (from which reader can judge whether to replicate work) and feeligns about future work}
 
 \appendix
+\chapter{RLA Challenge Descriptions}
+\wip{descriptions go here}
 \chapter{RLA Online Course Survey}
 \wip{questions go here}
 \clearpage
@@ -247,11 +261,6 @@ an honest set of personal takeaways (from which reader can judge whether to repl
 \end{singlespace}
 \end{document}
 
-
-
-
-
-write chapter 1
 
 write chapter 2
 
