@@ -14,7 +14,7 @@
 \degreemonth{June}
 \degreeyear{2018}
 \thesisdate{May 25, 2018}
-\supervisor{Philipp Schmidt}{Research Scientist, Director Media Lab Learning Initiative}
+\supervisor{Philipp Schmidt}{Research Scientist, Director of Media Lab Learning Initiative}
 \chairman{Katrina LaCurts}{Chairman, Department Committee on Graduate Theses}
 \maketitle
 \cleardoublepage
@@ -71,19 +71,29 @@ The code and course content are all freely available online for use in future it
 
 \chapter{Background}
 
-Educational theory and pedagogy is a vast field and far outdates the advent of online education. Here we briefly touch on frameworks that went into consideration for this thesis. 
+Educational theory and pedagogy comprises a vast field and far outdates the advent of online education. Here we briefly touch on frameworks that went into consideration for this thesis. 
 
 \section{Traditional Learning Platforms}
 
 An online platform to support learning is not a new concept. A learning management system (LMS) is a tool that helps instructors supervise an online course, and popular commercial LMSs exist such as Blackboard, Moodle, and Canvas. 
 
-A traditional LMS platform typically provides features including tracking learner grades, file management for assignments and corresponding submissions, and communication mechanisms for instructor announcements or learner questions. These features are often more convenient duplicates of the same in-person interactions of traditional classrooms. Furthermore, LMS usually don't fully encompass the activities of a class, leaving the core of the learning for classroom instruction or learner self-study. 
+A traditional LMS platform typically provides features including tracking learner grades, file management for assignments and corresponding submissions, and communication mechanisms for instructor announcements or learner questions. These features are often more convenient duplicates of the same in-person interactions of traditional classrooms. Furthermore, LMS usually don't fully encompass the activities of a class, leaving the core of the learning for classroom instruction or learner self-study.~\cite{zagalsky2015emergence}
 
 Of note, the issue of learner collaboration, which is often a component of more creative, project-based assignments, is often not properly addressed in traditional LMS platforms. This intersection of collaboration and technology is instead known as computer-supported collaborative work (CSCW), and families of tools exist to support online collaboration. Learners thus would have to take to these external tools to collaborate, depending on the particular assignment.
 
 \section{Foundational Theory}
 
-We begin with the assumption that humans have innate desire and ability to pursue their interests, and the role of the learning environment is to foster the right conditions. To break down this idea, we rely on 
+We begin with the assumption that humans have innate desire and ability to pursue their interests, and treat the role of the learning environment as fostering the right conditions. This is formalized in self-determination theory (SDT), which delineates three intrinsic pyschological needs:
+\begin{itemize}
+\item Autonomy: to see one's self as the causal agent of their life.
+\item Relevance: to interact and connect with others in one's environemnt.
+\item Competence: the accumulation of skills and ability to accomplish tasks.
+\end{itemize}
+SDT suggests that when these three feelings are present, humans are optimally disposed to grow.~\cite{ryan2000self}\cite{selfdetermination}\cite{selfdetermination2}
+
+The implication of SDT in learning is that a learning environment does not need to necessarily impose structure for learners to follow, but instead can encourage learners to be self-driven and motivated to explore their interests. Taking this perspective \cite{niemiec2009autonomy}
+
+
 
 \wip{Assuming SDT (autonomy, relevance, competence), which explains why humans have an innate desire to do things and have individualized passions, we use the 4P's to achieve learning outcomes (reason ------ design ----, work collaboratively.... mitch reference)
 
@@ -115,15 +125,21 @@ mastery->feedback, community}
 
 \chapter{Related Work}
 
-\wip{We set out to develop a new platform to address }
+In this chapter we survey existing technologies and platforms that we can learn or borrow from in developing a Git-based learning platform. Git has been applied to many fields, including education. 
 
 \section{Overview of Git}
 
-A specific technology used for online collaboration, particularly in software engineering, is Git. Created in 2005 by Linus Torvalds as a tool to support the development of the Linux kernel, Git allows users to each have a local copy of a set of files and sync between their copy and a central server in a coordinated fashion. Git is also a version control system, hence allowing users to backtrack changes or split into multiple branches of work from the same starting state.~\cite{githistory}
+A specific technology used for online collaboration, particularly in software engineering, is Git. Created in 2005 by Linus Torvalds as a tool to support the development of the Linux kernel, Git allows users to each have a local copy of a set of files and sync between their copy and a central server in a coordinated fashion. Git is also a version control system, hence allowing users to backtrack changes or split into multiple branches of work from the same starting state.
 
-Git is used as a command line tool, in which users type text commands to perform the desired git actions. In addition, there are graphical interfaces available which serve as a wrapper and aid for users who prefer not to use the command line. Overall, git is considered a powerful collaboration tool, but involves an upfront investment to learn its operations.
+Git is used as a command line tool, in which users type text commands to perform the desired git actions. In addition, there are graphical interfaces available which serve as a wrapper and aid for users who prefer not to use the command line. Overall, the benefit of Git is its powerful capabilities as a collaboration tool, but comes with the cost of an upfront time investment to learn its operations.~\cite{githistory}
 
 \section{Communities of practice}
+
+A community of practice consists of a group of people, a common interest that they share, and interactions or activities where the group acts on their interest. Members of the community learn from each other and improve their practice. We can see the community of an online course as a community of practice, and hence some of the tools and interactions that facilitate online communities of practice can be relevant to this study.~\cite{teachingdigital}
+
+Software development is an example of a community of practice, and Git was created to address the problem of code collaboration in such a community. 
+
+
 
 \wip{Use of group chats such as gitter and mattermost to complement projects}
 
@@ -239,7 +255,7 @@ Analyze progress}
 
 \chapter{Results of RLA Pilot}
 
-For six weeks in October and November of 2017, the approximately 80 learners participated in an online course using a git-based learning platform as the first phase of the RLA program. Following the course, an optional survey was conducted, the questions of which are included in the appendix. In this section we report the experience, results, and feedback we observed in the course and survey responses.
+For six weeks in November and December of 2017, approximately 100 learners participated in an online course using a Git-based learning platform as the first phase of the RLA program. Following the course, an optional survey was conducted, the questions of which are included in the appendix. In this section we report the experience, results, and feedback we observed in the course and survey responses.
 
 \section{User Experience}
 
@@ -330,9 +346,9 @@ The following questions were sent in an email to participants to gather feedback
 \begin{enumerate}
 \item Git
 \begin{itemize}
-\item How much had you used git before the course?
-\item To what extent did you learn git during the course?
-\item How useful would you say knowledge of git was for collaborating with your team?
+\item How much had you used Git before the course?
+\item To what extent did you learn Git during the course?
+\item How useful would you say knowledge of Git was for collaborating with your team?
 \end{itemize}
 \item Course materials
 \begin{itemize}
