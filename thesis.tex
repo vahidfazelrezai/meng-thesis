@@ -223,13 +223,33 @@ Hence, the design must encompass the whole course, from which the platform desig
 
 \subsection{Balancing Tensions}
 
-We consider the tensions outlined in Chapter 2 in a few key areas:
-\wip{restructure subsection in terms of tensions instead of new areas}
+\draft{We considered the tensions outlined above in several design decisions:
+
 \begin{itemize}
-\item Teamwork. We allowed learners to apply as teams so that they self-select into groups. This allows learners to work in teams, but still feel autonomy over who their team is and how they work within their teams.
-\item Communication. Communication lays the groundwork for the type of community formed. We aim to have instructors clearly communicate how to use the platform and be able to guide students throughout the course. General course information should be readily accessible to students. While this address content, we also want to address connectino. We allow for natural and structured opportunities to ask questions and give feedback. One of the secondary goals of the online coures is to foster a community that extends into the later phases of the Accelerator.
-\item Permissions. We must decide how to control authority to perform actions and visibility of content. On one hand, we believe that the platform should be as open as possible. This would allow students the opportunity to pursue their curiosities, to learn from each other's work, and to feel that they have a complete understanding of the platform. On the other hand, we would like to prevent either intentional or accidental actions that may destroy or hinder other participants' work. We also anticipate that sensitive topics would not be expressed without a private way of doing so and thus would like to allow for that.
+\item \textbf{Individual pathways vs shared experiences.}
+\begin{itemize}
+	\item We allowed learners to apply as teams so that they self-select into groups around work styles, technical interests, and local refugee context. This allows learners to work in teams, but still feel autonomy over who their team is and how they work within their teams.
+	\item In webinars, sometimes we asked teams to split up for breakout sessions with smaller groups. This gave learners a chance to meet others outside their team and contribute to the shared experience of the overall course.
 \end{itemize}
+\item \textbf{Team work vs solitary work.}
+\begin{itemize}
+	\item Parts of the challenges involved teams agreeing upon a direction and producing a single result, such as identifying a problem to solve or creating a product pitch.
+	\item Other parts of the challenges allowed teams to divide work by expertise or interest, such as building a prototype or having different roles in testing with users.
+\end{itemize}
+\item \textbf{Content vs connection.} 
+\begin{itemize}
+	\item One of the secondary goals of the online coures is to foster a community that extends into the later phases of the Accelerator, and communication laid the groundwork for the type of community formed. We aimed for instructors to clearly communicate how to use the platform and be available to guide students throughout the course. General course information was be readily accessible to students.
+	\item While this addressed content, we also wanted to address connection. We allow for natural and structured opportunities to ask questions and give feedback. We encouraged introductions at the beginning of the course and small talk outside the topic of the challenge was normal.
+\end{itemize}
+\end{itemize}
+
+Along other dimensions we made intentional decisions to promote creative learning:
+\begin{itemize}
+\item \textbf{Projects vs puzzles.} Each week's challenge was intentionally left open-ended and phrased as a question rather than a directive. 
+\item \textbf{Open vs closed.} We had to decide how to control the authority of performing actions and the visibility of content. On one hand, we believed that the platform should be as open as possible, but we also wanted to prevent either intentional or accidental actions that may destroy or hinder other participants' work. Anticipating that sensitive topics would not be expressed without a private way of doing so and thus would like to allow for that.
+\item \textbf{Qualitative feedback vs objective rubric.} We incorporated a weekly review in the form of comments on submissions. Each gave three pieces of feedback following the traffic light approach: one positive, one neutral, and one negative.
+\end{itemize}
+}
 
 \subsection{Platform Interactions}
 
@@ -258,13 +278,13 @@ In addition to managing the course content, we also want to support a few additi
 
 In order to have a group of distributed learners participate in the course using Git, we needed to have an server accessible by the Internet running Git where the content would be hosted. We looked at two of the most popular Git hosting services, Github and GitLab. Both offer a SaaS model where they host Git on their servers and simply provide an interface, as well as a self-hosted version where they provide the software but leave running a server to the customer.
 
-We compared options the two in terms of features, styles, and technical performance.
+We compared the two in terms of features, branding, and technical performance:
 
-The two options had very similar sets of features. Github has organizations, teams, repositories, and pull requests, while GitLab has groups, subgroups, projects, and merge requests. Both expose a webhook for Git commits, allow in-browser editing of files, and can serve hosted files as static websites. Both offer free or discounted private repositories/projects for educational uses. On a few points GitLab had additional features, such as being able to request to join a group and being able to trigger scripts that run before serving static websites.
-
-Many software companies use Github to host either all their code or even just their open source projects, and as a result a Github profile feels very much like a professional portfolio. We wanted to make sure learners are comfortable experimenting and making mistakes, and took into consideration that some may feel less inclined to do so if the work would permanently be associated with their professional portfolio. 
-
-Finally, we took into consideration the technical reliability of each option. We found that GitLab's SaaS offering, GitLab.com, was often slow to load. For both, a self-hosted instance would include considerable setup and costs to run a server, but would allow customizations such as the domain name. Finally, though both are welcoming homes to open source projects, Gitlab has made the web platform itself open source, whereas Github's is not.
+\begin{itemize}
+\item \textbf{Features.} The two options had very similar sets of features. Github has organizations, teams, repositories, and pull requests, while GitLab has groups, subgroups, projects, and merge requests. Both expose a webhook for Git commits, allow in-browser editing of files, and can serve hosted files as static websites. Both offer free or discounted private repositories/projects for educational uses. On a few points GitLab had additional features, such as being able to request to join a group and being able to trigger scripts that run before serving static websites.
+\item \textbf{Branding.} We took into account what implications the branding of the sites would have for learners. Many software companies use Github to host either all their code or even just their open source projects, and as a result a Github profile feels very much like a professional portfolio. We wanted to make sure learners are comfortable experimenting and making mistakes, and took into consideration that some may feel less inclined to do so if the work would permanently be associated with their professional portfolio. 
+\item \textbf{Performance.} We took into consideration the technical reliability of each option. We found that GitLab's SaaS offering, GitLab.com, was often slow to load. For both, a self-hosted instance would include considerable setup and costs to run a server, but would allow customizations such as the domain name. Finally, though both are welcoming homes to open source projects, Gitlab has made the web platform itself open source, whereas Github's is not.
+\end{itemize}
 
 For our course, we ended up opting for GitLab, and chose to mitigate performance issues by using a self-hosted instance of the free tier. However, it would certainly be possible to adapt our approach for either GitLab or Github, in the both SaaS and self-hosted models.
 
@@ -276,44 +296,99 @@ We looked at existing cloud messaging services including Slack, Gitter, and Matt
 
 From our options we chose to run a self-hosted instance of Mattermost, largely due to our choice of self-hosted GitLab. Mattermost and GitLab have a built-in integration for authentication and backend configuration. Mattermost is also open source, continuing in our spirit of relying on open source tools.
 
+\draft{
+
+\subsection{Webinar platform}
+
+We wanted to incorporate seminars into the content of our course, and for this we needed a video-streaming platform, ideally also allowing learner interaction. The Learning Initiative at the MIT Media Lab has developed exactly such a platform called Unhangout~\cite{unhangout}, so we used this for our course. An Unhangout session has a main video stream and allows participants to break out into smaller groups in a video conference format. Unhangout is also open source.
+
 \subsection{Server infrastructure}
 
-\draft{reliance on other software (letsencrypt, nginx, python and javascript, bash)}
+In order to host the components above, to serve websites, and to run any additional scripts, we required an Internet-accessible server. For addressing this need we looked at cloud computing platforms and domain name registration services. There are many vendors in these markets and we didn't find significant benefits in a particular one over any of the others. We ended up using DigitalOcean for the platform server and Namecheap to register the domain.
 
-\section{Technical Implementation}
+We also sought to enable HTTPS secure connections to the platform server. To do so, we utilized Let's Encrypt, a certificate authority that provides free automatically generated certificates.
 
-In this section we outline the initial implementation of the platform. We assume a technical background, in particular familiarity with Internet architecture and Git.
+\section{Technical Infrastructure}
 
-\subsection{Server configuration}
+In this section I walk through the steps of setting up a platform to meet the needs of the design described above. I assume a technical background, in particular familiarity with Internet architecture and Git. My approach was very much iterative, where the most restrictive components were configured first followed by smaller features within that component.
 
-\draft{The chosen components were open source pieces of software that required a server on which to install and run instances of these programs. Therefore the first step was to spin up and configure a network connected server. for this task I chose to use digitalocean but other service providers would have been equally valid choices. the server was configured as a Linux machine and could be accessed via SSH from any client. Next I downloaded and installed the gitlab Community Edition on the platform server. this version of get lab included and easy to use configuration file where all the settings of gitlab could be specified to the needs of the rla course. in this configuration the following settings were made. include itemized list of settings made forget lab here. to access get lab from the internet requires connecting a domain to the platform server and considering the platform server to Route request to this domain to be served by the running instance of get lab. on the external side this was accomplished by purchasing a domain for the rla course and then creating records in the domain name server to point that domain to the platform servers IP. on the server side, this routing was accomplished using nginx a default configuration of which was included in the get lab installation. however this default did not include secure SSL connection and therefore could not support https. to enable to port for https I created a certificate using the let's encrypt service for free. I then configured the nginx using custom configuration 2 use this certificate to authenticate secure connections and enable https for the gitlab website. at this point a usable gitlab instance was running on the platform server.
+\subsection{Deployment}
 
-the next component of the platform was the mattermost group chat service. As with gitlab mattermost was provided in an easy to download and install open source software package. even more conveniently gitlab and it's configuration file allows for integration with mattermost already built in. in particular one of the key pieces of this integration was Authentication. Pi configuring the appropriate settings a user when now be able to register for the get Lab website and then use those credentials to login to the matter most portion of the website. As a result users would be consistent across these two platforms both facilitating the creation of the course community and also simplifying the experience for individual learners. to access mattermost from the internet a similar process was undertaken. I knew something was created and nameservers were updated with records to point the subdomain 2 the platform server period on the server side nginx was modified yet again to serve requests at this sub domain using both HTTP and https. mattermost was also configured to suit the needs of the are Lake course and channels where set up in advance to guy discussion around challenges support and social interaction.
+First of all, I created a droplet in DigitalOcean, which is essentially a virtual machine that would serve as the platform server, with the following specifications:
+\begin{itemize}
+	\item The server ran Ubuntu Linux as the operating system.
+	\item Following GitLab's recommendation, I allocated 4 GB of RAM initially. Later in the course, as the server supported more programs including Mattermost and static webpages, this had to be increased. To do so, I shut down the server temporarily and rebooted the image on a larger droplet.
+	\item I intiially allocated 60 GB of disk space. As with the RAM, this had to be increased later in the course, especially when participants were storing AR projects with graphics in their workspaces on the server.
+	\item DigitalOcean provides an option to create the droplet using pre-defined imagines, one of which has an instance of GitLab. I chose this image to streamline installing GitLab. Using a different cloud computing provider without such a feature would alternatively require downloading the source code to the server and compiling on the machine manually.
+\end{itemize}
 
-with these two main components in place much of the configuration could be done through the corresponding web interface. for example a group was created for the Arlie course and configured with the appropriate permissions for joining the group and for editing particular projects.
+Next, I purchased an easy-to-remember domain name using Namecheap that we could connect to the platform server. This would serve as the landing page and home of the course. To connect this domain to the platform server, I configured nameservers with with A records, which point a domain to an IP address. In particular, I created subdomains as follows, all of which were connected to the IP address assigned for the platform server:
+\begin{itemize}
+\item \textbf{*}: The * subdomain indicates the root domain, or the absence of a subdomain. The server was initially configured to redirect requests here to the GitLab subdomain, and later this became the address for the course homepage.
+\item \textbf{gitlab}: Initially this was called ``code,'' but was renamed to reduce confusion since we started referring to the GitLab instance simply as ``GitLab.'' This was configured to serve the home page of GitLab.
+\item \textbf{mattermost}: Initially this was called ``chat,'' but again was renamed to reduce confusion. This was configured to serve the home page of Mattermost.
+\item \textbf{pages}: This was reserved for the possibility of teams wanting to serve their own webpages, but in the end we didn't reach this point. Instead, we automatically generated websites for each team based on their submitted work and served them as part of the course homepage at the root domain.
+\end{itemize}
+This could be equivalently be accomplished either in Namecheap's console or by configuring Namecheap to redirect to DigitalOcean's nameservers and configuring the records in DigitalOcean's console. I chose the second to consolidate all configuration to one console.
 
-DigitalOcean droplet https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-gitlab-on-ubuntu-16-04 
-GitLab [built in for DO]
-NameCheap domain and networking
-nginx customization
-Lets encrypt}
+On the server's side, GitLab has built-in configuration for nginx, which is a tool that directs how web requests to a server are routed and responded to. While GitLab requires certain settings in the nginx configuration files, it also allows for customization that I later used to add capabilities including HTTPS, static sites, and Mattermost.
 
-\subsection{Git architecture}
+\subsection{Server Configuration}
 
-\draft{motivate this
+Throughout this section, I will cover modifications made to the server through SSH in the command line.
+
+The droplet was created with an instance of GitLab already present, so I then went through the process of configuring individual settings for the instance. This was done by changing variables in a specific Ruby file. GitLab provides comprehensive documentation on this configuraton~\cite{gitlabdocs}, but I touch on a few key settings here:
+\begin{itemize}
+\item The external URL was set to match the registered domain, so that GitLab would automatically configure nginx to route requests to GitLab properly.
+\item Email notifications were enabled. To do so, first I created a GMail account for the course administrators and configured GitLab with the appropriate SMTP authentication details. 
+\item Custom nginx configuration was enabled. GitLab autogenerates the main nginx files running on the server, so to insert custom configuration requires pointing GitLab to a file containing the additional configurations.
+\item Integrating with additional services such as Mattermost and GitLab Runner, which are discussed in more detail below.
+\end{itemize}
+I then restarted the GitLab service, which triggered GitLab to update its own configuration files in the background. For each key change, I manually tested the functionality; for example, I triggered a test email notification to my own account and checked my inbox for the email. Additionally, on a couple occasions, users needed their passwords reset or accounts deleted, which was accomplished by applying updates to the underlying database through the command line.
+
+By default, GitLab does not support SSL connections and hence accessing the website via HTTPS would not work. To fix this, I used Let's Encrypt's command line tool to issue certificates for each of the subdomains listed above. This involved inserting nginx configuration that would respond to Let's Encrypt's servers' cryptographic challenges. Once set up, these certificates would be valid until expiration 90 days later. This exceeded the length of the course, but were configured to autorenew when close to expiration anyway. 
+
+At this point, the bare version GitLab was fully functional and could be used via the web interface.
+
+The next large component to set up was Mattermost. As with GitLab, Mattermost is open source and was installed by downloading and running the source code on the platform server. Furthermore, GitLab allowed for integration with Mattermost on the level of the server code. This was accomplished with further adjustments in GitLab's configuration. Other configuration could also be made in this file, including:
+\begin{itemize}
+\item Setting the external URL to properly route requests to the Mattermost instance.
+\item Telling Mattermost to recognize HTTPS connections using the issued certificate.
+\item Permissions for Mattermost users to create and delete teams.
+\end{itemize}
+Mattermost also has a mobile client that can be used to access chat channels through a native mobile app. I tested this using my personal phone and wrote instructions for how learners could download and log in to the client.
+
+The most important result of the integration between GitLab and Mattermost was the shared authentication. That is, a user could create an account on the GitLab instance, and then use the same credentials to log in to the Mattermost instance. This greatly simplified the onboarding process for learners.
+
+Finally, a similar process as for setting up Mattermost was required for setting up GitLab Runner. This is a service separate from GitLab that runs the appropriate scripts to prepare and serve static websites using the files in a GitLab-managed Git repository, among other uses. I downloaded the source code onto the platform server and started the service, then adjusted GitLab's configuration file yet again to properly route requests to the service. An additional step here was to register the instance of GitLab Runner with GitLab through GitLab's web interface. After these steps, GitLab users could use the GitLab web interface to trigger jobs for the GitLab Runner instance to run.
+}
+
+\subsection{Content Configuration}
+
+\wip{
+\begin{itemize}
+\item create RLA group with permissions
+\item create team-template and course-central
+\item create team in mattermost
+\item create channels in mattermost
+\end{itemize}
+}
+
+\subsection{Git Architecture}
+
+\wip{add more here}
 
 \begin{itemize}
 \item \textbf{Divided by folder.} All teams commit to one shared master branch, but in different folders. The benefit of this approach is its simplicity, but the downside is the lack of permissions enforcement to avoid one team interfering with another's work.
 \item \textbf{Divided by branch.} All teams commit to different branches of a single class repository. This way teams can even rebase on master to gain access to new course materials. Though tricky, it is also possible to enforce appropriate permissions so teams can only push to their own branch. The downside is that it becomes messy for teams to create their own branches for development.
 \item \textbf{Divided by repository.} All teams work in their own repositories, which are pulled together each as a subtree within a course repository. This allows for complete freedom for teams within their own repository with simple permission settings, but creates complexity in having each team's work in multiple locations, namely in two separate repositories. 
 \end{itemize}
-}
 
 \subsection{Custom Scripts}
 
-\draft{As much as possible, Git-related operations of the platform were automated to ease the burden on the instructors. 
+As much as possible, Git-related operations of the platform were automated to ease the burden on the instructors.
 \begin{itemize}
-\item Onboarding membership request poller
+\item Group membership.
 \item Onboarding group creation
 \item Health check with email notifications
 \item Create subtrees
@@ -321,16 +396,16 @@ Lets encrypt}
 \item Perform merge
 \item Analyze progress
 \end{itemize}
-}
 
+\wip{add more here}
+
+\section{Weekly Operation}
 
 \chapter{Results of RLA Pilot}
 
-For six weeks in November and December of 2017, approximately 100 learners participated in an online course using the Git-based learning platform as the first phase of the RLA program. Following the course, an optional survey was conducted, the questions of which are included in the appendix. In this section we report the experience, results, and feedback we observed in the course and survey responses.
+For six weeks in November and December of 2017, approximately 100 learners participated in an online course using the Git-based learning platform as the first phase of the RLA program. Following the course, an optional survey was conducted, the questions of which are included in Appendix B. In this section we report the experience, results, and feedback we observed in the course and survey responses.
 
-\section{User Experience}
-
-\draft{Frame around tensions, for each broad set of interactions go over "what did it look like", "how did it work", and "how well did it work"}
+\wip{Frame around tensions, for each broad set of interactions go over "what did it look like", "how did it work", and "how well did it work"}
 
 \begin{figure}[H]
 \centering
@@ -340,7 +415,7 @@ For six weeks in November and December of 2017, approximately 100 learners parti
 
 \chapter{Conclusion}
 
-\draft{narrative summary of thesis, an honest set of personal takeaways (from which reader can judge whether to replicate work) and feeligns about future work}
+\wip{narrative summary of thesis, an honest set of personal takeaways (from which reader can judge whether to replicate work) and feeligns about future work}
 
 \appendix
 
