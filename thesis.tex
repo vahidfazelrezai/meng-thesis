@@ -27,7 +27,7 @@ Instructors use software called learning management systems to administer online
 \end{abstractpage}
 \cleardoublepage
 \section*{Acknowledgments}
-\wip{Acknowledgments...}
+\wip{Noor for being available even after moving on from the lab and for joining for the workshop....}
 
 \tableofcontents
 
@@ -93,7 +93,7 @@ Of note, the issue of learner collaboration, which is often a component of more 
 
 \section{Foundational Theory}
 
-\subsection{Self-determination Theory}
+\subsection{Self-Determination Theory}
 
 A critical underlying assumption of creative learning is that humans have innate desire and ability to pursue their interests, and that the role of the learning environment is to foster the right conditions. This is formalized in self-determination theory (SDT), which delineates three intrinsic pyschological needs:
 \begin{itemize}
@@ -373,10 +373,23 @@ Moving forward with the repository-based approach, we created a group in GitLab 
 
 Within the RLA group, we created two repositories and divided instructor content across them:
 \begin{itemize}
-	\item \textbf{\texttt{course-central}}. This would contain the core content for each challenge along with additional resources. Under a \texttt{teams} folder, it would also have a subtree for each team, which appears as a folder with all the contents synced from the team's repository. One key file in this repository would be \texttt{participants.json}, a JSON file that would be the source of truth for which learners are registered for the course and for who is on which team.
-	\item \textbf{\texttt{team-template}}. This is intended to be forked by teams and would be the method by which new materials would be distributed for teams to work on. For each challenge, teams would pull new material from this template repository into their own copy. Finally, as an added benefit GitLab tracks all the forks of a repository, so teams would not have to additionally register their fork in any way and the subtree in \texttt{course-central} can be generated automatically.
+	\item \textbf{\texttt{course-central}}. This would contain the core content for each challenge along with additional resources. Under a \texttt{teams} folder, it would also have a subtree for each team, which appears as a folder with all the contents synced from the team's repository. One key file in this repository would be \texttt{participants.json}, a JSON file that would be the source of truth for which learners are registered for the course and for who is on which team. A screenshot of the web interface is shown in Figure~\ref{fig-course-central}.
+	\item \textbf{\texttt{team-template}}. This is intended to be forked by teams and would be the method by which new materials would be distributed for teams to work on. For each challenge, teams would pull new material from this template repository into their own copy. Finally, as an added benefit GitLab tracks all the forks of a repository, so teams would not have to additionally register their fork in any way and the subtree in \texttt{course-central} can be generated automatically. A screenshot of the web interface is shown in Figure~\ref{fig-team-template}.
 \end{itemize}
 }
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{fig-course-central.png}
+\caption{\label{fig-course-central} The \texttt{course-central} repository.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{fig-team-template.png}
+\caption{\label{fig-team-template} The \texttt{team-template} repository.}
+\end{figure}
+
 
 \subsection{Custom Scripts and Course Facilitation}
 
@@ -384,11 +397,12 @@ Within the RLA group, we created two repositories and divided instructor content
 
 Some scripts were run continually to automatically perform tasks in response to certain events, including:
 \begin{itemize}
+\item \textbf{Server health check.} Following an incident when a misconfiguration on the platform server left the GitLab site inaccessible, we created a script that would ping the GitLab site every five seconds. In the case that it detected the site was inaccessible, it would send out emails to the instructors alerting them of the problem.
+\item \textbf{Analyze team progress.} While the state of each team's work was accessible by everyone, it would sometimes be useful to have an aggregate sense of how many teams had registered themselves in \texttt{participants.json} and for each challenge how many teams had submitted work. Instead of manually navigating and counting on the GitLab website, we wrote a script that could quickly extract a variety of statistics using the GitLab API.
 \item \textbf{Approve group membership.} In GitLab, a user must request access to a group from an administrator. Instead of having to wait for an instructor to receive and respond to such a request, we streamlined the learner experience and decided to automatically grant this access (we would still manually review any submissions made to the central repository). To accomplish this, we wrote a script that would poll for pending requests every two seconds and approve them. 
 \item \textbf{Create subgroups for teams.} Underneath the RLA group in GitLab, we wanted to create a subgroup with the members of each team. Instead of asking teams or instructors to do this manually, we read team information from \texttt{participants.json} and used the GitLab API to sync this state with membership of subgroups of the RLA group. This was script triggered on every new commit to \texttt{participants.json}.
-\item \textbf{Server health check.} Following an incident when a misconfiguration on the platform server left the GitLab site inaccessible, we created a script that would ping the GitLab site every five seconds. In the case that it detected the site was inaccessible, it would send out emails to the instructors alerting them of the problem.
-\item \textbf{Analyze team progress.} While the state of each team's work was accessible by everyone, it would sometimes be useful to have an aggregate sense of how many teams had registered themselves in \texttt{participants.json} and for each challenge how many teams had submitted work. Instead of manually navigating and counting on the GitLab website, we wrote a script that could quickly extract this information using the GitLab API.
 \end{itemize}
+From a learner's perspective, getting started with the course consisted of registering for GitLab, registering themselves in \texttt{participants.json}, and uploading a photo to their team's repository. We expected many learners to be new to Git, so we wrote detailed instructions for accomplishing these tasks to serve the dual purpose of being a first introduction to Git. These instructions are included in Appendix C.
 
 We also utilized scripts for facilitation of the submission process. As laid out above, we allowed teams to do their work in their own repository, but had a collection of all work in \texttt{course-central}. We automated the link between these two with the following scripts:
 \begin{itemize}
@@ -403,10 +417,11 @@ In order to publish a new challenge, instructors would take the following steps:
 \item When ready to release the challenge, merge the challenge branch into master for both \texttt{course-central} and \texttt{team-template}. 
 \item Announce the new material by sending learners direct links to relevant materials and notifying them to pull in their team's repository from the template repository.
 \end{enumerate}
+}
 
 \subsection{Course Webpage}
 
-At any time during the course, \texttt{course-central} contained a collection of all materials generated for and during the course up to that point. By design, most of these materials were contained in Markdown-formatted files, or sometimes in PDF format. Both of these are easy to embed as-is in a website, so we created a course webpage by writing some HTML scaffolding in \texttt{course-central} and setting up GitLab Runner to parse and serve the files in \texttt{course-central} as a static website. The website was arranged with the following pages:
+\review{At any time during the course, \texttt{course-central} contained a collection of all materials generated for and during the course up to that point. By design, most of these materials were contained in Markdown-formatted files, or sometimes in PDF format. Both of these are easy to embed as-is in a website, so we created a course webpage by writing some HTML scaffolding in \texttt{course-central} and setting up GitLab Runner to parse and serve the files in \texttt{course-central} as a static website. The website was arranged with the following pages:
 \begin{itemize}
 \item \textbf{Homepage and participants.} This was a single page with a description of the course. We had asked teams to upload profile pictures of their members to a particular folder in their team repository. These were then synced to \texttt{course-central} and arranged on the homepage as a directory of all the learners.
 \item \textbf{Challenges page.} We gathered all the challenge descriptions and made each of them a tab on one page, so an observer outside the course could quickly get an overview of the course content.
@@ -417,21 +432,53 @@ We configured the platform server to redirect requests the root domain (refugeel
 
 \chapter{Results of RLA Pilot}
 
-\review{For six weeks in November and December of 2017, approximately 100 learners participated in an online course using the Git-based learning platform as the first phase of the RLA program. Following the course, an optional survey was conducted, the questions of which are included in Appendix B. In this section I report the experience, results, and feedback we observed in the course and survey responses.
+\review{For six weeks in November and December of 2017, approximately 100 learners participated in an online course using the Git-based learning platform as the first phase of the RLA program. After the course, an optional survey was conducted, the questions of which are included in Appendix B. A total of 11 learners chose to respond to the survey, but since all questions were optional some questions have fewer than 11 answers.
 
-Frame around tensions, for each broad set of interactions go over "what did it look like", "how did it work", and "how well did it work"}
+In this chapter I report the experience and results we observed through facilitating the course and the survey responses.}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.3]{fig-course-central.png}
-\caption{The \texttt{course-central} repository.}
-\end{figure}
+\section{Git as a Skill}
+
+\review{When asked to what extent they used Git prior to the course, only 1 out of 10 learners indicated at least moderate use Git. All others said they never or rarely used Git prior to the course. We had anticipated this, so we built in several ways to help and encourage learners to learn Git on their own:
+\begin{itemize}
+\item All learners were aksed to use Git during the onboarding and submission phases. The onboarding instructions, included in Appendix C, give specific Git commands for learners to run.
+\item Some teams used Git as their primary collaboration tool.
+\item In Mattermost, learners often asked questions when running into errors with Git, and often in answering questions instructors or other learners explained parts of Git.
+\end{itemize}
+In the survey, 7 out of 10 learners said they found Git useful in their team's collaboration and 8 out of 10 learners said they had at least a basic understanding of Git, even though we provided no formal instruction on Git.}
+
+\section{Submission Process}
+
+\review{From the perspective of the learner, the submission process was entirely automated. Their work appeared in the Merge Requests tab of the \texttt{course-central} repository at the deadline. Over the next couple days, instructors and peers would leave feedback on the merge request, and then it would be merged and closed.
+
+The burden on the learner was to keep their repository up to date, especially at the deadline. In doing this, 4 out of 10 learners reported having issues at some point during the course. One said, ``I believe this was something to do with my local folder and online folder not being updated together. This was down to my inexperience in using git.'' While we tried to simplify the process as much as possible for the learners, Git was still a challenging barrier to overcome.
+
+Another way we tried to simplify the submission process was setting a deadline at which point whatever snapshot was available in teams' repositories would be taken as the submission, although teams who finished after the deadline could notify the instructors and have their submission updated with their latest repository snapshot. The alternative to having a deadline would be to allow teams to trigger the submission themselves, either by creating the merge request themselves or by otherwise triggering the script to run on their repository. When asked whether they would have preferred this alternative, 8 out of 9 learners said no. One commented, ``I believe the deadlines were useful and motivating. If it was a continuous submission then maybe some teams would not have moved on to the next topic easily.'' Another added, ``It is not comfortable knowing access to our work is possible in its draft form.'' While we hadn't factored it into our initial decision. It seemed that conforming to the traditional concept of a deadline resonated with the learners.}
+
+\section{Accessibility of Course Materials}
+
+\review{One of our key principles was to keep course materials, including other teams' work, as open and accessible as possible. 
+
+It seemed that GitLab fit this role well as a content distribution platform, as 9 out of 10 learners reported having no difficulty accessing course materials, with the remaining learner having trouble navigating the submission branches. For informative course content such as challenge descriptions, it seemed like direct links from challenge announcement emails were particularly useful.
+
+Where GitLab exceeded normal content management systems was for the review processing using the merge request interface. In the survey, 10 out of 10 respondents reported being able to view other teams' work and 9 out 10 found this useful. One respondent said, ``It was useful because that allows us to get an idea how others are approaching the same problem that we are working on, and we gained a lot also when others saw our work and gave us feedback.'' 
+
+We also decided to make open and easily accessible the list of participants in the course via the photo gallery on the course homepage. This was possible because we asked for learners to register their team membership and upload their photo as part of onboarding. When asked whether the list of participants was useful, 10 out of 10 participants said yes, with one elaborating, ``It eased to find out the comment came from which group and providing feedback in return.'' This was validation of our hypothesis that, by keeping the course materials open and accessible, learners would make use of it as they need and be self-motivated to act.}
 
 \chapter{Conclusion}
 
-\review{narrative summary of thesis, an honest set of personal takeaways (from which reader can judge whether to replicate work) and feeligns about future work
+\review{In this thesis I set out to create a new learning platform around the idea that Git as a collaboration tool is in alignment with the 4 P's framework of creative learning. After further exploring relevant theory and other use cases of Git, I worked as part of the RLA instructor team to design a 6-week course that would run on a Git-based online platform. I then implemented a fully functional prototype of the platform largely centered around a self-hosted instance of GitLab. This was ultimately used as the plat the RLA course.
 
-I would explore ways of tweaking the Git architecture to simplify it from the learner's perspective}
+Many of the features of the platform were developed on an as-needed basis in supporting the course, some even while the course was running. This ended up being quite useful, because I could respond directly to feedback and write exactly the scripts that were necessary. Of course, other aspects we had prepared in advance and I am grateful that we did. For example, we chose to create submission templates as Markdown files, which ended up being easy to adapt into team portfolio sites. Overall, developing this platform without a pilot course would have been much more difficult, especially as the course participants were very helpful in their feedback both during and after the course.
+
+In practice, I found that the primary challenge was the knowledge barrier learners had with using Git. Without prior experience, trying to use Git as a component of a larger task could be very frustrating. Perhaps a primer on Git would be a necessary prerequisite for participating with such a platform. 
+
+A secondary and related challenge was navigating the branches and forks of the course's Git architecture. Though more familiarity with Git would partially alleviate this problem, the level of complexity in the Git architecture was a little too high. In the RLA course, not all teams made heavy or even significant use of Git for collaboration, so having a dedicated team repository wasn't the best option for those teams. If I were to redesign the architecture with this in mind, I would choose to have a single repository with a designated folder and a designated branch for each team. The merge request interface worked really well for feedback, so this way a merge request from a team branch into master would still act as a sort of submission. For teams who would want the extra autonomy of having their own dedicated repository, they could set up the same subtree structure that was used in this pilot for themselves without significantly changing the submission workflow.
+
+From learner feedback, having a set submission deadline and an overall weekly cycle seemed to work well. This structure was helpful to balance the open-endedness of the challenge tasks. The structure also eased the load on instructors, reducing the amount of custom attention an instructor needed to give to matters of workflow. Having a predictable seminar and feedback cycle was helpful for those instructors who were writing reviews to plan their schedule.
+
+This pilot also demonstrated how custom scripts can help in facilitating an online course. All of the tasks running as a script were accomplished more easily and faster than manually running Git commands or otherwise completing the task. On the technical side, I believe the greatest opportunity for contribution lies in this area. A production-level, seasoned toolkit for instructors would help Git-based online learning platforms rival traditional LMS.
+
+Finally, creating a course environment that was decentralized, project-focused, and self-driven significantly contributed to creating a friendly community that was enhanced in later stages of the RLA program. In many instances, giving a participant access to information and resources resulted in the participant not only benefiting from it in an unintended way, but also sharing that with other participants. Some of this happened on Mattermost, some within teams, some in the seminar breakouts, and some in the feedback comments. In all cases, openness contributed to participants' learning. In my view, the course served as reinforcement of the frameworks based on which it was designed.}
 
 \appendix
 
@@ -542,6 +589,108 @@ The following questions were sent in an email to participants to gather feedback
 \end{itemize}
 \end{enumerate}
 
+\chapter{RLA Onboarding Instructions}
+
+The sections below are instructions for a new member to get started with the course and complete the first set of tasks.
+
+\section*{Getting started with GitLab and Mattermost}
+
+\begin{enumerate}
+\item \textbf{Register a new GitLab account here [linked to GitLab homepage].} We are using a private instance of GitLab specifically for the accelerator, so you will need to create a new account even if you already have one on GitLab.com.
+\item \textbf{Join our Mattermost community:}
+\begin{itemize}
+	\item Go to our Mattermost instance and select \texttt{GitLab} to log in with your new GitLab account. 
+	\item You will be asked to join a team. Select RLA. 
+\end{itemize}
+\item Good job so far. Now it's time to \textbf{Say Hello!} and make some new friends:
+\begin{itemize}
+	\item Post an introduction in the General channel on Mattermost!
+	\item What's your name, where are you from, and what's your Mexican wrestler title?
+\end{itemize}
+\item \textbf{Join the RLA group on GitLab.} Go back to GitLab. In the top navigation bar, click \texttt{Groups}, then \texttt{Explore public groups}, then \texttt{RLA}, then \texttt{Request Access}. Your request should be approved within a few seconds.
+\end{enumerate}
+
+\section*{Register as a team member}
+
+There are two options for how to do this--you may pick whichever you prefer below.
+
+\subsection*{Option 1: Using the GitLab web interface}
+
+\begin{enumerate}
+\item Go to here [linked to \texttt{course-central} repository].
+\item Under the project navigation bar, click the \texttt{+} button and choose \texttt{New branch} from the dropdown.
+\item Write \texttt{register-yourusername} (replacing \texttt{yourusername} with your actual GitLab username) for your branch name.
+\item Click \texttt{participants.json} to open the file.
+\item Click \texttt{Edit} in the top right and make your edits as described below.
+\item Once you're done, press the \texttt{Commit changes} button at the bottom.
+\item Navigate back to course-central [linked to \texttt{course-central} repository]. In the project navigation bar, click \texttt{Branches}, then find your branch and click \texttt{Merge Request}.
+\item Set \texttt{Assignee} to be \texttt{@vahidfazelrezai}.
+\item Click \texttt{Submit merge request}. An instructor will review and merge your request. Once it is merged, you will be added to a subgroup for your team.
+\end{enumerate}
+
+
+\subsection*{Option 2: Using git on the command line}
+
+\begin{enumerate}
+\item Run the following in your command line (Terminal on Mac and Command Prompt on Windows), replacing `yourusername` with your actual username:
+\begin{itemize}
+    \item \texttt{git --version}--if this command fails, you must first install git.
+    \item \texttt{git clone https://gitlab.refugeelearning.site/rla/course-central}
+    \item \texttt{cd course-central}
+    \item \texttt{git checkout -b register-yourusername} (for example: git checkout -b register-*vahidfazelrezai*)
+    \item Edit \texttt{participants.json} as described below.
+    \item \texttt{git add participants.json}
+    \item \texttt{git commit -m 'Register yourusername'}
+    \item \texttt{git push origin register-yourusername}
+\end{itemize}
+\item Go here [linked to \texttt{course-central} repository]. In the project navigation bar, click \texttt{Branches}, then find your branch and click \texttt{Merge Request}.
+\item Set \texttt{Assignee} to be \texttt{@vahidfazelrezai}.
+\item Click \texttt{Submit merge request}. An instructor will review and merge your request. Once it is merged, you will be added to a subgroup for your team.
+\end{enumerate}
+
+\subsection*{How to edit the \texttt{participants.json}}
+
+If you are \textbf{not the primary contact for your team}, you just need to add yourself as a member.
+
+\begin{enumerate}
+\item Find your team entry. (If it doesn't exist yet, contact your team's primary contact).
+\item Team members need to be separated by \texttt{,}. Add a comma after the last \texttt{\}} in the list of your team members.
+\item Starting on the next line after the comma, add your entry. For example, if you were to add to the team above, it would look like:
+\end{enumerate}
+
+\begin{verbatim}
+{
+  "teamName": "team name",
+  "members": [
+    {
+      "name": "PRIMARY CONTACT NAME",
+      "username": ":PRIMARY CONTACT GITLAB USERNAME"
+    },
+    {
+      "name": "YOUR NAME",
+      "username": "YOUR GITLAB USERNAME"
+    }
+  ]
+}
+\end{verbatim}
+
+\textbf{That's it. Well done! Feel free to check in on Mattermost to let us know!}
+
+
+\section*{Add your photo}
+
+Let's get started. All you need is a image (a photo or any other image to represent you) and to follow these steps:
+
+\begin{enumerate}
+\item Navigate to your team's project.
+\item Click on the \texttt{photos} directory.
+\item Choose an image to upload. \textbf{Important:} Use your GitLab username as the file name, and all lower case, e.g. \texttt{vahidfazelrezai.jpg}. You must rename the file *before* you upload the file.
+\item Once you're ready, under the navigation bar, click the \texttt{+} button and choose \texttt{Upload file} from the dropdown.
+\item Click \texttt{Upload}.
+\end{enumerate}
+
+After you finish these steps there should be a new commit on your project that adds a your photo file. We will automatically pull all photos into a shared class gallery (and share the link very soon!). 
+
 \clearpage
 \newpage
 \begin{singlespace}
@@ -550,6 +699,3 @@ The following questions were sent in an email to participants to gather feedback
 \bibliographystyle{apa}
 \end{singlespace}
 \end{document}
-
-
- tense, results, conclusion, figures, acknowledgments
