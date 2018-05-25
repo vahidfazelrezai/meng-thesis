@@ -1,14 +1,15 @@
 \documentclass[12pt,twoside]{mitthesis}
 \usepackage[T1]{fontenc} % font encoding
-\usepackage[numbers]{natbib}
-\usepackage{graphicx}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
-\usepackage{color}
-\newcommand{\draft}[1]{{\color{blue} #1}}
+\usepackage[numbers]{natbib}
+\usepackage{graphicx, float, color}
 \definecolor{mygreen}{RGB}{0, 125, 0}
-\newcommand{\review}[1]{{\color{mygreen} #1}}
-\newcommand{\wip}[1]{{\color{red} To do...}}
-% \newcommand{\wip}[1]{{\color{red} #1}}
+\newcommand{\review}[1]{{#1}}
+\newcommand{\draft}[1]{{#1}}
+\newcommand{\wip}[1]{{#1}}
+% \newcommand{\review}[1]{{\color{mygreen} #1}}
+% \newcommand{\draft}[1]{{\color{blue} #1}}
+% \newcommand{\wip}[1]{{\color{red} To do...}}
 \begin{document}
 \title{Git-Based Platform for Distributed Learning Communities}
 \author{Vahid Fazel-Rezai}
@@ -27,7 +28,9 @@ Instructors use software called learning management systems to administer online
 \end{abstractpage}
 \cleardoublepage
 \section*{Acknowledgments}
-\wip{Noor for being available even after moving on from the lab and for joining for the workshop....}
+I'd like to give thanks to my advisor, Philipp Schmidt, for guiding me in all aspects of this project. I have learned a great deal from working with him and I appreciate his patience and support throughout. I would also like to thank the members of the Learning Initiative, who always pointed me in the right direction.
+
+It was a blessing to be a part of RLA. I am thankful towards Genevieve Barrons, who often defied the bounds of possibility in making the program a huge success, as well as all the instructors and participants in both the online and workshop portions. It was an absolute pleasure to work with everyone. This project would not be possible without a grant from the Open Society Foundation, for which I am also grateful.
 
 \tableofcontents
 
@@ -367,7 +370,7 @@ The drawback of this method is the disparity between such use of branches and wh
 \item \textbf{Organized by repository.} Each team would work in its own repository, which is created by forking a template repository (inspired by others' use of Git for contest submission). Work from this repository would then be pushed to a subtree within a central course repository.\\ \\
 This grants teams absolute freedom within their own repository in terms of permission and usage of branches. A teams is not distracted by seeing other teams' branches on the repository they work in. Additionally, submission snapshots can be created as merge requests to the subtree of the central repository, for which GitLab has a built-in commenting and tagging interface. The downside is that team's work exists in two locations, a development copy in their own repository and a submitted copy in the central repository, which can be more difficult to link together than the separate branches in the previous two approaches.
 \end{itemize}
-Weighing the pros and cons of each approach, we chose to organize by repository. A key reason was to be able to use the merge request interface for giving feedback. To mitigate the more complex flow of files between two repositories, we decided to automate the merge request process using custom scripts, which are described in the next section.
+Weighing the pros and cons of each approach, we chose to organize by repository. A key reason was to be able to use the merge request interface for giving feedback, which is shown in Figure~\ref{fig-merge-request}. To mitigate the more complex flow of files between two repositories, we decided to automate the merge request process using custom scripts, which are described in the next section.
 
 Moving forward with the repository-based approach, we created a group in GitLab called RLA with the course's logo and description, so it could be easily found by learners. We also created a corresponding team in Mattermost, which we prepopulated with channels for introductions, technical support, and challenge discussion. We configured permissions so that everything was visible to everyone, but only administrators had permission to create or delete repositories in GitLab.
 
@@ -376,18 +379,31 @@ Within the RLA group, we created two repositories and divided instructor content
 	\item \textbf{\texttt{course-central}}. This would contain the core content for each challenge along with additional resources. Under a \texttt{teams} folder, it would also have a subtree for each team, which appears as a folder with all the contents synced from the team's repository. One key file in this repository would be \texttt{participants.json}, a JSON file that would be the source of truth for which learners are registered for the course and for who is on which team. A screenshot of the web interface is shown in Figure~\ref{fig-course-central}.
 	\item \textbf{\texttt{team-template}}. This is intended to be forked by teams and would be the method by which new materials would be distributed for teams to work on. For each challenge, teams would pull new material from this template repository into their own copy. Finally, as an added benefit GitLab tracks all the forks of a repository, so teams would not have to additionally register their fork in any way and the subtree in \texttt{course-central} can be generated automatically. A screenshot of the web interface is shown in Figure~\ref{fig-team-template}.
 \end{itemize}
+A diagram visualizing the flow of content across these repositories is shown in Figure~\ref{fig-diagram}.
 }
 
-\begin{figure}[h]
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{fig-merge-request.png}
+\caption{\label{fig-merge-request} The Merge Request interface.}
+\end{figure}
+
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{fig-course-central.png}
 \caption{\label{fig-course-central} The \texttt{course-central} repository.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{fig-team-template.png}
 \caption{\label{fig-team-template} The \texttt{team-template} repository.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{fig-diagram.png}
+\caption{\label{fig-diagram} The flow of content. Orange boxes are forks of \texttt{team-template} and green boxes are corresponding subtrees within \texttt{course-central}.}
 \end{figure}
 
 
