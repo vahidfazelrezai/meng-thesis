@@ -4,12 +4,6 @@
 \usepackage[numbers]{natbib}
 \usepackage{graphicx, float, color}
 \definecolor{mygreen}{RGB}{0, 125, 0}
-% \newcommand{\review}[1]{{#1}}
-% \newcommand{\draft}[1]{{#1}}
-% \newcommand{\wip}[1]{{#1}}
-\newcommand{\review}[1]{{\color{mygreen} #1}}
-\newcommand{\draft}[1]{{\color{blue} #1}}
-\newcommand{\wip}[1]{{\color{red} To do...}}
 \begin{document}
 \title{Git-Based Platform for Distributed Learning Communities}
 \author{Vahid Fazel-Rezai}
@@ -37,9 +31,6 @@ It was a blessing to be a part of RLA. I am thankful towards Genevieve Barrons, 
 \newpage
 \listoffigures
 
-% \newpage
-% \listoftables
-
 \chapter{Introduction}
 
 New education technology, enabled by the Internet, has allowed learners to connect with their instructors and with each other digitally. Pieces of software known as learning management systems take the experience of a classroom online, giving remote learners more access to education and enriching their learning experiences with a variety of technology.
@@ -52,14 +43,14 @@ The following sections outline the research methodology of this study. Chapters 
 
 The development of a Git-based learning platform was part of a larger project called the Refugee Learning Accelerator (RLA). RLA is a program of Media Lab Learning, an initiative of the MIT Media Lab. The goal of the program is to gather and support technologists from the Middle East to develop new education tools for refugee learners. 
 
-\draft{The program ran in three phases from fall of 2017 through spring of 2018. First, interested candidates applied as teams through an open process. Around 100 participants were selected for the first phase of the program, which consisted of a 6-week online course during November and December of 2018. The course operated on a weekly cycle:
+The program ran in three phases from fall of 2017 through spring of 2018. First, interested candidates applied as teams through an open process. Around 100 participants were selected for the first phase of the program, which consisted of a 6-week online course during November and December of 2018. The course operated on a weekly cycle:
 \begin{itemize}
 \item Challenge materials were released every other week introducing a new technology. Teams were asked to design and build a prototype of a solution related to refugee education using that technology.
 \item Twice during the week a webinar was conducted where an expert in the field discussed the week's technology and answered questions.
 \item Teams were given independence to structure their work over the course of the week.
 \item Teams received qualitative feedback from the instructors once a week, at the midpoint and the end of each two-week challenge.
 \end{itemize}
-The topics chosen for the online course were chatbots, human centered design, and augmented reality (AR). A description of each challenge is included in Appendix A.}
+The topics chosen for the online course were chatbots, human centered design, and augmented reality (AR). A description of each challenge is included in Appendix A.
 
 The second phase of the program brought 14 selected teams together for a week-long, in-person workshop in Amman, Jordan. There, teams forged their project ideas through rapid iterations of feedback and field observation. One important goal of the workshop was to foster a supportive community, where members encouraged one another to pursue their projects and share resources.
 
@@ -167,11 +158,10 @@ Overall, the benefit of Git derives from its powerful capabilities as a collabor
 
 A community of practice consists of a group of people, a common interest that they share, and interactions or activities where the group acts on their interest. Members of the community learn from each other and improve their practice. Software development is an example of a community of practice, and Git was created to address the issue of collaboration on code in such a community.~\cite{teachingdigital}
 
-\draft{Git has gone on to prove useful in other communities of practice and has been adapted for collaboration in areas other than code.~\cite{sevenwaysgit} The community of an online course can itself be seen as a community of practice, so other applications of Git may bear lessons on how to adapt it for learning.}
+Git has gone on to prove useful in other communities of practice and has been adapted for collaboration in areas other than code.~\cite{sevenwaysgit} The community of an online course can itself be seen as a community of practice, so other applications of Git may bear lessons on how to adapt it for learning.
 
 \section{Other Uses of Git}
 
-\draft{
 While Git was initially created for and is actively used by the software development community, its application has spread to many other use cases. Here are several of these, and for each the relevant techniques of adapting Git:
 \begin{itemize}
 \item \textbf{Programming-based courses.} Initially used for collaborating on work, Git is making its way into classrooms as a form of submitting work as well. Instructors may even set up repositories for students for their use or collaboration with teammates.~\cite{whygithubclassroom} Github itself has even added features to streamline this use case.~\cite{githubclassroom} However, note that this is not a LMS and usually is not used as a complete learning platform. Despite this, it is of note that Git hosting platforms can be used as a link-able and easily navigable host of information.
@@ -182,11 +172,10 @@ While Git was initially created for and is actively used by the software develop
 \item \textbf{Recipes.} A service called Fork the Cookbook allows users can fork, or copy, an existing recipe and tweak it to make it their own. This creates a collaborative and decentralized platform for sharing cooking recipes.~\cite{forkthecookbook}
 \item \textbf{Travel logging.} A Github user has a repository for his personal travels, where onlookers can submit suggestions for attractions in a city he is planning to attend by suggesting edits for that particular city's file.~\cite{travellog} Empowering members to contribute to a central file by submitting a suggested edit is a concept that can be taken to other use cases as well.
 \end{itemize}
-}
 
 \section{Suitability of Git for Learning Platforms}
 
-\draft{While Git was not originally designed as a learning platform, we found in it suitable qualities. Below is a discussion the benefits of Git as a tool for fostering educational interactions.
+While Git was not originally designed as a learning platform, we found in it suitable qualities. Below is a discussion the benefits of Git as a tool for fostering educational interactions.
 
 First of all, Git aligns with the design tensions discussed above: 
 \begin{itemize}
@@ -202,7 +191,7 @@ Git also aligns well with the preferences for the type of experience RLA is desi
 \item \textbf{Qualitative feedback vs objective rubric.} As a version control system, the currency is in units of iterative work rather than a final deliverable, reinforcing the idea that there is no preset rubric for what is considered good or bad work.
 \end{itemize}
 
-Finally, because Git is already widely-used, it is reliable in a technical sense and help material are readily available online for easing adoption. In addition, Git's widespread use makes it an important skill. Code collaboration is a standard requirement in the software development industry, and software is increasingly relevant in all industries, so learning Git as part of participating in a course can itself be an additional benefit.~\cite{haaranen2015teaching}}
+Finally, because Git is already widely-used, it is reliable in a technical sense and help material are readily available online for easing adoption. In addition, Git's widespread use makes it an important skill. Code collaboration is a standard requirement in the software development industry, and software is increasingly relevant in all industries, so learning Git as part of participating in a course can itself be an additional benefit.~\cite{haaranen2015teaching}
 
 \chapter{Platform Development}
 
@@ -216,7 +205,7 @@ Hence, the design must encompass the whole course, from which the platform desig
 
 \subsection{Balancing Tensions}
 
-\draft{As designers and instructors of the online course, we considered the tensions outlined above in several design decisions, which influenced course facilitation and, as a result, the technical requirements of the platform.
+As designers and instructors of the online course, we considered the tensions outlined above in several design decisions, which influenced course facilitation and, as a result, the technical requirements of the platform.
 
 \begin{itemize}
 \item \textbf{Individual pathways vs shared experiences.}
@@ -242,7 +231,6 @@ Along the other dimensions we made intentional decisions to promote creative lea
 \item \textbf{Open vs closed.} We had to decide how to control permissions of performing actions and visibility of content. On one hand, we believed that the platform should be as open as possible. On the other hand, we wanted to prevent either intentional or accidental actions that may destroy or hinder other participants' work. Also, we anticipated that sensitive topics could not be expressed without a private way of doing so. Hence, in some places such as edit permissions on the central repository and direct messages we opted for closed interactions, but otherwise left settings as open as possible. These settings were configured directly into the platform.
 \item \textbf{Qualitative feedback vs objective rubric.} We incorporated a weekly review in the form of comments on submissions. Each reviewer gave three pieces of feedback following the traffic light approach: one positive (green), one neutral (yellow), and one negative (red). For this feedback, the platform needed support for free-form text comments.
 \end{itemize}
-}
 
 \subsection{Platform Interactions}
 
@@ -290,21 +278,21 @@ From these options we chose to run a self-hosted instance of Mattermost, largely
 
 \subsection{Webinar Platform}
 
-\draft{We wanted to incorporate seminars as a component of our course, and for this we needed a video-streaming platform, ideally also allowing learner interaction. The Learning Initiative at the MIT Media Lab has developed such a platform called Unhangout~\cite{unhangout}, which we used for the course. An Unhangout session has a main video stream and allows participants to break out into smaller groups in a video conference format. Unhangout is also open source.}
+We wanted to incorporate seminars as a component of our course, and for this we needed a video-streaming platform, ideally also allowing learner interaction. The Learning Initiative at the MIT Media Lab has developed such a platform called Unhangout~\cite{unhangout}, which we used for the course. An Unhangout session has a main video stream and allows participants to break out into smaller groups in a video conference format. Unhangout is also open source.
 
 \subsection{Internet Accessibility}
 
-\draft{In order to host the components above, to serve websites, and to run any additional scripts, we required an Internet-accessible server. For addressing this need we looked at cloud computing platforms and domain name registration services. There are many vendors in these markets and we didn't find significant benefits in a particular one over any of the others. We ended up using DigitalOcean for the platform server and Namecheap to register the domain.
+In order to host the components above, to serve websites, and to run any additional scripts, we required an Internet-accessible server. For addressing this need we looked at cloud computing platforms and domain name registration services. There are many vendors in these markets and we didn't find significant benefits in a particular one over any of the others. We ended up using DigitalOcean for the platform server and Namecheap to register the domain.
 
-We also sought to enable HTTPS secure connections to the platform server. To do so, we utilized Let's Encrypt, a certificate authority that provides free automatically generated certificates.}
+We also sought to enable HTTPS secure connections to the platform server. To do so, we utilized Let's Encrypt, a certificate authority that provides free automatically generated certificates.
 
 \section{Technical Infrastructure}
 
-\draft{In this section I walk through the steps of setting up a platform server to meet the needs of the design described above. I assume a technical background, in particular familiarity with Internet architecture and Git. My approach was very much iterative, where the most restrictive components were configured first followed by smaller features within that component.}
+In this section I walk through the steps of setting up a platform server to meet the needs of the design described above. I assume a technical background, in particular familiarity with Internet architecture and Git. My approach was very much iterative, where the most restrictive components were configured first followed by smaller features within that component.
 
 \subsection{Deployment}
 
-\draft{First of all, I created a droplet in DigitalOcean, which is essentially a virtual machine that would serve as the platform server, with the following specifications:
+First of all, I created a droplet in DigitalOcean, which is essentially a virtual machine that would serve as the platform server, with the following specifications:
 \begin{itemize}
 	\item The server ran Ubuntu Linux as the operating system.
 	\item Following GitLab's recommendation, I allocated 4 GB of memory initially. Later in the course, as the server supported more programs including Mattermost and static webpages, this had to be increased. To do so, I shut down the server temporarily and rebooted the image on a larger droplet.
@@ -321,11 +309,11 @@ Next, I purchased an easy-to-remember domain name (refugeelearning.site) using N
 \end{itemize}
 This could be equivalently accomplished either in Namecheap's console or by configuring Namecheap to redirect to DigitalOcean's nameservers and configuring the records in DigitalOcean's console. I chose the second to consolidate all configuration to one console.
 
-On the server's side, GitLab has built-in configuration for nginx, which is a tool that directs how web requests to a server are routed and responded to. While GitLab requires certain settings in the nginx configuration files, it also allows for customization that I later used to add capabilities including HTTPS, static sites, and Mattermost. GitLab also works with a supplemental program called GitLab Runner, which is a service separate from GitLab that runs the appropriate scripts to prepare and serve static websites using the files in a GitLab-managed Git repository, among other uses. I made use of this program to set up the course homepage.}
+On the server's side, GitLab has built-in configuration for nginx, which is a tool that directs how web requests to a server are routed and responded to. While GitLab requires certain settings in the nginx configuration files, it also allows for customization that I later used to add capabilities including HTTPS, static sites, and Mattermost. GitLab also works with a supplemental program called GitLab Runner, which is a service separate from GitLab that runs the appropriate scripts to prepare and serve static websites using the files in a GitLab-managed Git repository, among other uses. I made use of this program to set up the course homepage.
 
 \subsection{Server Configuration}
 
-\draft{In this section I cover modifications made to the server, accessed through SSH in the command line.
+In this section I cover modifications made to the server, accessed through SSH in the command line.
 
 The droplet was created with an instance of GitLab already present, so I then went through the process of configuring individual settings for the instance. This was done by changing variables in a specific Ruby file. GitLab provides comprehensive documentation on this configuraton~\cite{gitlabdocs}, but I touch on a few key settings here:
 \begin{itemize}
@@ -350,11 +338,11 @@ Mattermost also has a mobile client that can be used to access chat channels thr
 
 The most important benefit of the integration between GitLab and Mattermost was the shared authentication. That is, a user could create an account on the GitLab instance, and then use the same credentials to log in to the Mattermost instance. This greatly simplified the onboarding process for learners.
 
-Finally, a similar process as for setting up Mattermost was required for setting up GitLab Runner. I downloaded the source code onto the platform server and started the service, then adjusted GitLab's configuration file to properly route requests to the service. An additional step here was to register the instance of GitLab Runner with GitLab through GitLab's web interface. After these steps, GitLab users could use the GitLab web interface to trigger jobs for the GitLab Runner instance to run.}
+Finally, a similar process as for setting up Mattermost was required for setting up GitLab Runner. I downloaded the source code onto the platform server and started the service, then adjusted GitLab's configuration file to properly route requests to the service. An additional step here was to register the instance of GitLab Runner with GitLab through GitLab's web interface. After these steps, GitLab users could use the GitLab web interface to trigger jobs for the GitLab Runner instance to run.
 
 \subsection{Git Architecture and Content Organization}
 
-\review{The central proposition of the platform is to use Git to support learners' interactions. Here I explore how this can be manifested in Git's specific features.
+The central proposition of the platform is to use Git to support learners' interactions. Here I explore how this can be manifested in Git's specific features.
 
 In particular, Git was used to manage two types of files:
 \begin{itemize}
@@ -380,7 +368,6 @@ Within the RLA group, we created two repositories and divided instructor content
 	\item \textbf{\texttt{team-template}}. This was intended to be forked by teams and was the method by which new materials would be distributed for teams to work on. For each challenge, teams would pull new material from this template repository into their own copy. Finally, as an added benefit GitLab tracks all the forks of a repository, so teams would not have to additionally register their fork in any way and the subtree in \texttt{course-central} could be generated automatically. A screenshot of the web interface is shown in Figure~\ref{fig-team-template}.
 \end{itemize}
 A diagram visualizing the flow of teams' work across these repositories is shown in Figure~\ref{fig-diagram}.
-}
 
 \begin{figure}[H]
 \centering
@@ -409,7 +396,7 @@ A diagram visualizing the flow of teams' work across these repositories is shown
 
 \subsection{Custom Scripts and Course Facilitation}
 
-\review{As much as possible, platform-related operations of the course were automated to ease the burden on the instructors. Almost all of these took the form of scripts running on the platform server and using the GitLab API to perform actions on behalf of instructors. More specifically, these actions were associated with the identity of ``RLA Admin,'' represented by a user of that name on GitLab. The scripts were implemented in a combination of Python (for most data manipulation and API calls), Node.js (for continuous scripts that polled an API), and Bash (for running Git commands). Scripts running continuously or periodically were run using a Node.js package that enabled doing so. All other scripts were executed via SSH on the platform server by an instructor.
+As much as possible, platform-related operations of the course were automated to ease the burden on the instructors. Almost all of these took the form of scripts running on the platform server and using the GitLab API to perform actions on behalf of instructors. More specifically, these actions were associated with the identity of ``RLA Admin,'' represented by a user of that name on GitLab. The scripts were implemented in a combination of Python (for most data manipulation and API calls), Node.js (for continuous scripts that polled an API), and Bash (for running Git commands). Scripts running continuously or periodically were run using a Node.js package that enabled doing so. All other scripts were executed via SSH on the platform server by an instructor.
 
 Some scripts were run continually to automatically perform tasks in response to certain events, including:
 \begin{itemize}
@@ -434,57 +421,55 @@ In order to publish a new challenge, instructors would take the following steps:
 \item Announce the new material by sending learners direct links to relevant materials and notifying them to pull in their team's repository from the template repository.
 \end{enumerate}
 
-
-All scripts are available online under the MIT open source license.~\cite{rlascripts}}
+All scripts are available online under the MIT open source license.~\cite{rlascripts}
 
 \subsection{Course Webpage}
 
-\review{At any time during the course, \texttt{course-central} contained a collection of all materials generated for and during the course up to that point. By design, most of these materials were contained in Markdown-formatted files, or sometimes in PDF format. Both of these are easy to embed as-is in a website, so we created a course webpage by writing some HTML scaffolding in \texttt{course-central} and setting up GitLab Runner to parse and serve the files in \texttt{course-central} as a static website. The website was arranged with the following pages:
+At any time during the course, \texttt{course-central} contained a collection of all materials generated for and during the course up to that point. By design, most of these materials were contained in Markdown-formatted files, or sometimes in PDF format. Both of these are easy to embed as-is in a website, so we created a course webpage by writing some HTML scaffolding in \texttt{course-central} and setting up GitLab Runner to parse and serve the files in \texttt{course-central} as a static website. The website was arranged with the following pages:
 \begin{itemize}
 \item \textbf{Homepage and participants.} This was a single page with a description of the course. We had asked teams to upload profile pictures of their members to a particular folder in their team repository. These were then synced to \texttt{course-central} and arranged on the homepage as a directory of all the learners.
 \item \textbf{Challenges page.} We gathered all the challenge descriptions and made each of them a tab on one page, so an observer outside the course could quickly get an overview of the course content.
 \item \textbf{Team pages.} For each team, we arranged their submission files as tabs on a single page that could be treated as their team portfolio. They could send a link to this page to an observer outside the course to quickly understand what they have produced as part of RLA.
 \end{itemize}
 We configured the platform server to redirect requests the root domain (refugeelearning.site) to this website. Over the course of the 6 weeks, the website would automatically update with new content as it was committed.
-}
 
 \chapter{Lessons from the RLA Pilot}
 
-\review{For six weeks in November and December of 2017, approximately 100 learners participated in an online course using the Git-based learning platform as the first phase of the RLA program. After the course, an optional survey was conducted, the questions of which are included in Appendix B. Eleven learners responded to the survey, but since all questions were optional some questions have fewer than 11 answers.
+For six weeks in November and December of 2017, approximately 100 learners participated in an online course using the Git-based learning platform as the first phase of the RLA program. After the course, an optional survey was conducted, the questions of which are included in Appendix B. Eleven learners responded to the survey, but since all questions were optional some questions have fewer than 11 answers.
 
-In this chapter I report the experience and results we observed through facilitating the course and the survey responses.}
+In this chapter I report the experience and results we observed through facilitating the course and the survey responses.
 
 \section{Git as a Skill}
 
-\review{When asked to what extent they used Git prior to the course, only 1 out of 10 learners indicated at least moderate use of Git. All others said they never or rarely used Git prior to the course. We had anticipated this, and built in several ways to introduce and expose learners to Git:
+When asked to what extent they used Git prior to the course, only 1 out of 10 learners indicated at least moderate use of Git. All others said they never or rarely used Git prior to the course. We had anticipated this, and built in several ways to introduce and expose learners to Git:
 \begin{itemize}
 \item All learners were asked to use Git during the onboarding and submission phases. The onboarding instructions, included in Appendix C, give specific Git commands for learners to run.
 \item In Mattermost, learners could ask questions when running into errors with Git, and often in answering questions instructors or other learners explained some of the more fundamental design of Git.
 \item Some teams used Git as their primary collaboration tool, where learners could rely on teammates for help.
 \end{itemize}
-In the survey, 7 out of 10 learners said they found Git useful in their team's collaboration and 8 out of 10 learners said they had developed at least a basic understanding of Git by the end of the course, even though we provided no formal instruction on Git. While this result was pleasing, we could have achieved it with less friction if we had devoted more resources to preparing learners for Git, and perhaps even reached higher levels of learners' understanding of Git.}
+In the survey, 7 out of 10 learners said they found Git useful in their team's collaboration and 8 out of 10 learners said they had developed at least a basic understanding of Git by the end of the course, even though we provided no formal instruction on Git. While this result was pleasing, we could have achieved it with less friction if we had devoted more resources to preparing learners for Git, and perhaps even reached higher levels of learners' understanding of Git.
 
 \section{Submission Process}
 
-\review{From the perspective of the learner, the submission process was entirely automated. Their work appeared in the Merge Requests tab of the \texttt{course-central} repository at a specified deadline. Over the following days, instructors and peers would leave feedback on the merge request, and then it would be merged and closed.
+From the perspective of the learner, the submission process was entirely automated. Their work appeared in the Merge Requests tab of the \texttt{course-central} repository at a specified deadline. Over the following days, instructors and peers would leave feedback on the merge request, and then it would be merged and closed.
 
 The burden on the learner was to keep their repository up to date, especially at the deadline. In doing this, 4 out of 10 learners reported having issues at some point during the course. One said, ``I believe this was something to do with my local folder and online folder not being updated together. This was down to my inexperience in using git.'' While we tried to simplify the process as much as possible for the learners, Git was still a challenging barrier to overcome.
 
-Another way we tried to simplify the submission process was setting a deadline at which point whatever snapshot was available in teams' repositories would be taken as the submission, although teams who finished after the deadline could notify the instructors and have their submission updated with their latest repository snapshot. The alternative to having a deadline would be to allow teams to trigger the submission themselves, either by creating the merge request themselves or by otherwise triggering the script to run on their repository. When asked whether they would have preferred this alternative, 8 out of 9 learners said no. One commented, ``I believe the deadlines were useful and motivating. If it was a continuous submission then maybe some teams would not have moved on to the next topic easily.'' Another added, ``It is not comfortable knowing access to our work is possible in its draft form.'' Hence, keeping draft work separate but still visible was beneficial. While we hadn't factored it into our initial decision, it seemed that conforming to the traditional concept of a deadline resonated with the learners.}
+Another way we tried to simplify the submission process was setting a deadline at which point whatever snapshot was available in teams' repositories would be taken as the submission, although teams who finished after the deadline could notify the instructors and have their submission updated with their latest repository snapshot. The alternative to having a deadline would be to allow teams to trigger the submission themselves, either by creating the merge request themselves or by otherwise triggering the script to run on their repository. When asked whether they would have preferred this alternative, 8 out of 9 learners said no. One commented, ``I believe the deadlines were useful and motivating. If it was a continuous submission then maybe some teams would not have moved on to the next topic easily.'' Another added, ``It is not comfortable knowing access to our work is possible in its draft form.'' Hence, keeping draft work separate but still visible was beneficial. While we hadn't factored it into our initial decision, it seemed that conforming to the traditional concept of a deadline resonated with the learners.
 
 \section{Open Materials and Collaboration}
 
-\review{One of our key principles was to keep course materials and communication, including other teams' work, as open and accessible as possible. 
+One of our key principles was to keep course materials and communication, including other teams' work, as open and accessible as possible. 
 
 It seemed that GitLab fit this role well as a content distribution platform, as 9 out of 10 learners reported having no difficulty accessing course materials, with the remaining learner having trouble navigating the submission branches. For informative course content such as challenge descriptions, it seemed like direct links from challenge announcement emails were particularly useful.
 
 Where GitLab exceeded normal content management systems was for the review processing using the merge request interface. In the survey, 10 out of 10 respondents reported being able to view other teams' work and 9 out 10 found this useful. One respondent said, ``It was useful because that allows us to get an idea how others are approaching the same problem that we are working on, and we gained a lot also when others saw our work and gave us feedback.'' 
 
-We also decided to make open and easily accessible the list of participants in the course via the photo gallery on the course homepage. This was possible because we asked for learners to register their team membership and upload their photo as part of onboarding. When asked whether the list of participants was useful, 10 out of 10 participants said yes, with one elaborating, ``It eased to find out the comment came from which group and providing feedback in return.'' This was validation of our hypothesis that, by keeping the course materials open and accessible, learners would make use of it as they need and be self-motivated to act.}
+We also decided to make open and easily accessible the list of participants in the course via the photo gallery on the course homepage. This was possible because we asked for learners to register their team membership and upload their photo as part of onboarding. When asked whether the list of participants was useful, 10 out of 10 participants said yes, with one elaborating, ``It eased to find out the comment came from which group and providing feedback in return.'' This was validation of our hypothesis that, by keeping the course materials open and accessible, learners would make use of it as they need and be self-motivated to act.
 
 \chapter{Conclusion}
 
-\review{In this thesis I set out to create a new learning platform based on Git as a collaboration tool for online learning communities that is in alignment with the 4 P's framework of creative learning. After exploring relevant learning design theory and studying other use cases of Git, I worked as part of the RLA instructor team to design a 6-week course that ran on a Git-based online platform. I implemented a fully functional prototype of this platform centered around a self-hosted instance of GitLab.
+In this thesis I set out to create a new learning platform based on Git as a collaboration tool for online learning communities that is in alignment with the 4 P's framework of creative learning. After exploring relevant learning design theory and studying other use cases of Git, I worked as part of the RLA instructor team to design a 6-week course that ran on a Git-based online platform. I implemented a fully functional prototype of this platform centered around a self-hosted instance of GitLab.
 
 \section{Learner Experience}
 
@@ -500,7 +485,7 @@ Many of the features of the platform were developed on an as-needed basis in sup
 
 This pilot also demonstrated how custom scripts can help in facilitating an online course. All of the tasks running as a script were accomplished more easily and faster than manually running Git commands or otherwise completing the task. On the technical side, I believe the greatest opportunity for contribution lies in this area. A production-level, toolkit of easy to deploy scripts for instructors would help Git-based online learning platforms rival traditional LMS.
 
-Finally, creating a course environment that was decentralized, project-focused, and self-driven significantly contributed to creating a friendly community that was enhanced in later stages of the RLA program. In many instances, giving a participant access to information and resources resulted in the participant not only benefiting from it in an unintended way, but also sharing that with other participants. Some of this happened on Mattermost, some within teams, some in the seminar breakouts, and some in the feedback comments. In all cases, openness contributed to participants' learning. In my view, the course served as reinforcement of the frameworks based on which it was designed.}
+Finally, creating a course environment that was decentralized, project-focused, and self-driven significantly contributed to creating a friendly community that was enhanced in later stages of the RLA program. In many instances, giving a participant access to information and resources resulted in the participant not only benefiting from it in an unintended way, but also sharing that with other participants. Some of this happened on Mattermost, some within teams, some in the seminar breakouts, and some in the feedback comments. In all cases, openness contributed to participants' learning. In my view, the course served as reinforcement of the frameworks based on which it was designed.
 
 \appendix
 
